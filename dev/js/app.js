@@ -1,6 +1,5 @@
-import { function_name,a,b } from './config/index'
+import { proxy_mock } from './config/index'
+proxy_mock({name:'config'})
 
-let tracego = ()=> console.log('ok')
-
-
-console.log(function_name,a,b)
+console.log(APP_ENV)
+console.log(APP_VERSION)

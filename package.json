@@ -1,12 +1,12 @@
 {
   "name": "build",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "前端项目构建",
   "main": "index.js",
   "scripts": {
     "dev": "npm run build & npm run proxy_mock --p",
-    "pro": "webpack -p",
-    "build": "webpack --watch",
+    "pro": "NODE_ENV=pro webpack -p",
+    "build": "NODE_ENV=dev webpack --watch",
     "proxy_mock": "proxy-mock -p"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "babel-preset-es2015": "^6.14.0",
     "clean-webpack-plugin": "^0.1.10",
     "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.10.0",
     "webpack": "^1.13.2"
   }
 }

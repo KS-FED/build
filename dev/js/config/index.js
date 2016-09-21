@@ -1,12 +1,13 @@
-export function a(){
-
+/**
+ * [proxy_mock 代理、mock]
+ * @param  {[type]} Vue [Vue]
+ */
+export function proxy_mock(Vue){
+    if(APP_ENV=='dev'){
+        require(['./proxy-mock'],function({mock,proxy}){
+            mock(Vue)
+            proxy(Vue)
+        })    
+    }    
 }
-export function b(){
 
-}
-
-    require.ensure(['./dev',function(val){
-        console.log(val)
-    }])
-// if(true){}
-// export {function_name} from './dev'
