@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>微信支付</title>
+    <link rel="stylesheet" href="./dist/app.css">
+</head>
+<body>
+    <!--付款请求中....-->
+    <div class="ui-loading-wrap">
+        <i class="ui-loading"></i>
+        <p>付款请求中...</p>
+    </div>
+
+<style>
+    .ui-loading-wrap {
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        text-align: center;
+        height: 40px;
+        margin-top: 40px;
+    }
+    i {
+        font-style: normal;
+    }
+    .ui-loading {
+        width: 20px;
+        height: 20px;
+        display: block;
+        background: url(./dev/img/loading_sprite.png);
+        -webkit-background-size: auto 20px;
+        -webkit-animation: am-rotate 1s steps(12) infinite;
+    }
+    .ui-loading-wrap .ui-loading {
+        margin: 10px;
+    }
+    @-webkit-keyframes am-rotate{from{background-position:0 0}to{background-position:-240px 0}}
+    @-webkit-keyframes am-rotate2{from{background-position:0 0}to{background-position:-444px 0}}
+
+
+</style>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<!-- <script type="text/javascript" src="./dist/app.js"></script> -->
+<script type="text/javascript">
+// http://zd.qa.kashuo.net/zdcrm-ws-1.0
+    $(function () {
+        var host = "http://zdys.kashuo.com/zdcrm-ws-1.0/";
+        var url = window.location.href;
+        var regId = /.+id=(\d{16}).*/;
+        var regAmount = /.+amount=(\d+).*/;
+        if (!regId.test(url)) {
+            alert('找不到订单编号');
+            return;
+        }
+        if (!regAmount.test(url)) {
+            alert('找不到订单付款金额');
+            return;
+        }
+        var id = url.replace(regId, "$1");
+        var amount = url.replace(regAmount, "$1");
+
+
+        function setApiEnv(req){
+            var wx = JSON.parse(localStorage.getItem("IMPOWER_INFO"));
+            req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            req.setRequestHeader("X-MERCHANT-ID",wx.mid);
+            req.setRequestHeader("X-WECHAT-OPENID",wx.openid);
+            // req.setRequestHeader("X-WECHAT-APPID",wx.appid);
+            var token = JSON.parse(localStorage.getItem("ZD_TOKEN"));
+            req.setRequestHeader("X-AUTH-TOKEN",token);
+        }
+
+        function getJsSdk() {
+            var d = $.Deferred();
+            $.ajax({
+                type: "POST",
+                url: host + "c/wx/grant-js-sdk",
+                data: {url: window.location.href},
+                beforeSend: function(request){setApiEnv(request)},
+                dataType: 'json',
+                success: function (ret) {
+                    d.resolve(ret);
+                },
+                error: function (ret) {
+                    d.reject(ret);
+                }
+            });
+            return d.promise();
+        }
+
+
+
+        function getPrepayData() {
+            var d = $.Deferred();
+            $.ajax({
+                type: "POST",
+                url: host+"c/wx/prepay",
+                data: {trans_no: id, money_amount: amount},
+                beforeSend: function(request){setApiEnv(request)},
+                dataType: 'json',
+                success: function (ret) {
+                    d.resolve(ret);
+                },
+                error: function (ret) {
+                    d.reject(ret);
+                }
+            });
+            return d.promise();
+        }
+
+        if (typeof wx == 'undefined' || typeof wx.chooseWXPay != 'function') {
+            alert('微信JS-SDK未正确安装');
+        } else {
+            $.when(getJsSdk(), getPrepayData()).then(function (ticket, trade) {
+                
+                var ok = '10000'; //ticket = result[0].data, trade = result[1].data,
+                var ready = true;
+                if (!!ticket && ticket.code != ok) {
+                    
+                    ready = false;
+                } else {
+                    ticket = ticket.result;
+                }
+                if (!!trade && trade.code != ok) {
+                    
+                    ready = false;
+                } else {
+                    trade = trade.result;
+                }
+                if (ready) {
+                    
+                    // *** 配置SDK
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: ticket.appId, // 必填，公众号的唯一标识
+                        timestamp: ticket.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: ticket.noncestr, // 必填，生成签名的随机串
+                        signature: ticket.signature,
+                        jsApiList: ["chooseWXPay"]
+                    });
+                    // *** 检查是否支持支付接口
+                    wx.checkJsApi({
+                        jsApiList: ['chooseWXPay'],
+                        success: function (res) {
+                            if (!res.checkResult.chooseWXPay) {
+                                // *** 错误提示
+                                ready = false;
+                                self.tipsMsg = '对不起, 您的微信版本不支持支付功能!';
+                                !self.tips ? self.tips = true : null;
+                                self.$els.tips.addEventListener("webkitAnimationEnd", function () {
+                                    self.tips = false;
+                                }, false);
+                            }
+                        }
+                    });
+                    
+                    if (ready) {
+                        setTimeout(function () {
+                        
+                            // *** 处理支付动作
+                            wx.chooseWXPay({
+                                timestamp: trade.timeStamp,
+                                nonceStr: trade.nonceStr,
+                                package: trade.package,
+                                signType: trade.signType,
+                                paySign: trade.paySign,
+                                success: function (res) {
+                                    window.location.href = '/c/#!/account/deposit-record';
+                                },
+                                fail: function (res) {
+                                    
+                                },
+                                cancel: function () {
+                                    
+                                }
+                            });
+
+                        },1000)
+                    }
+                }
+
+            });
+        }
+    });
+    
+
+</script>
+</body>
+</html>
