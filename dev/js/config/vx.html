@@ -44,11 +44,9 @@
 </style>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
-<!-- <script type="text/javascript" src="./dist/app.js"></script> -->
 <script type="text/javascript">
-// http://zd.qa.kashuo.net/zdcrm-ws-1.0
     $(function () {
-        var host = "http://zdys.kashuo.com/zdcrm-ws-1.0/";
+        var host = "/zdcrm-ws-1.0/";
         var url = window.location.href;
         var regId = /.+id=(\d{16}).*/;
         var regAmount = /.+amount=(\d+).*/;
@@ -69,7 +67,6 @@
             req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             req.setRequestHeader("X-MERCHANT-ID",wx.mid);
             req.setRequestHeader("X-WECHAT-OPENID",wx.openid);
-            // req.setRequestHeader("X-WECHAT-APPID",wx.appid);
             var token = JSON.parse(localStorage.getItem("ZD_TOKEN"));
             req.setRequestHeader("X-AUTH-TOKEN",token);
         }
