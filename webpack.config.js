@@ -16,7 +16,7 @@ module.exports = {
         path: __dirname + '/dist',
         filename: 'app.js',
         chunkFilename: '[name].[chunkhash:8].js',
-        publicPath: '/dist/'
+        publicPath: './dist/'
     },
     module: {
         loaders: [{
