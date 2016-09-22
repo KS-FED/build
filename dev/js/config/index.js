@@ -10,4 +10,6 @@ export function proxy_mock(Vue){
         })    
     }    
 }
+console.log('environment: '+APP_ENV,'version: '+APP_VERSION)
+
 

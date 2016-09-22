@@ -2,19 +2,22 @@
  * webpack 配置
  */
 
+var path = require('path')
 var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+
 var _package = require('./package.json')
 
 
 module.exports = {
     entry: {
-        index: __dirname + '/dev/js/app.js'
+        app: __dirname + '/dev/js/app.js',
+        vuecore: __dirname + '/dev/js/vuecore.js'
     },
     output: {
         path: __dirname + '/dist',
-        filename: 'app.js',
+        filename:'[name].js',
         chunkFilename: '[name].[chunkhash:8].js',
         publicPath: './dist/'
     },
@@ -71,8 +74,22 @@ module.exports = {
         new webpack.DefinePlugin({
             'APP_ENV': JSON.stringify(process.env.NODE_ENV),
             'APP_VERSION':JSON.stringify(_package.version)
+        }),
+        new webpack.ProvidePlugin({
+            'Vue':'vue',
+            'VueResource':'vue-resource'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+          name:'vuecore',
+          filename:'vuecore.js'
         })
         
     ],
+    resolve: {
+        // extensions: ['', '.js', '.vue'],
+        alias: {
+            scss: path.join(__dirname, './dev/sass/app.scss')
+        }
+    },
     devtool: 'source-map'
 }

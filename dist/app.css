@@ -1,0 +1,1956 @@
+@charset "UTF-8";
+/**
+* @file:      Neat.css V1.1.0
+* @author:    一丝
+* @update:    2013-11-22 14:55:29;
+* @copyright: 基于 normalize.css | MIT License
+* @doc:
+*/
+/**
+* Neat.css 解决的问题
+* 基于业务需要兼容的浏览器做到以下几点：
+* 1.解决BUG，特别是低级浏览器的常见BUG；
+* 2.统一效果，但不盲目追求重置为0；
+* 3.向后兼容；
+* 4.考虑响应式；
+* 5.考虑移动设备。
+*/
+/* ==========================================================================
+ 有即是无，无即是有
+ ========================================================================== */
+body, dl, dd, ul, ol, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, textarea, optgroup,
+p, blockquote, figure, hr, menu, dir,
+thead, tbody, tfoot, th, td {
+  margin: 0;
+  padding: 0; }
+
+/**
+* 非大面积文字排版网站通常不需要列表项，如果需要可单独设置
+*/
+ul, ol {
+  list-style-type: none;
+  list-style-image: none; }
+
+/* ==========================================================================
+ 链接
+ ========================================================================== */
+/**
+* 去除链接默认的下划线，提高文字可读性
+*/
+a {
+  text-decoration: none; }
+
+/**
+* 去掉 IE 10+ 点击链接时的灰色背景
+*/
+a:active {
+  background-color: transparent; }
+
+/**
+* 去掉点击时的焦点框，同时保证使用键盘可以显示焦点框
+*/
+a:active,
+a:hover {
+  outline: 0 none; }
+
+/**
+* 统一 Chrome 和 Safari 的焦点框样式
+* Chrome 中 thin 关键字放大页面后焦点框不会放大 http://jsbin.com/ehakom/1
+* Firefox 中 box-shadow 会导致焦点框位置偏移，需用「outline-offset」修正
+*
+*/
+/* ==========================================================================
+ 字体和基础排版
+ ========================================================================== */
+/**
+* 1.防止 iOS 横屏字号放大，同时保证在PC上 zoom 功能正常
+*/
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* 1 */
+  font-size: 62.5%;
+  /* 10/16=62.5% */ }
+
+/**
+* 所有 font-family 小写，存在空格的字体名加单引号
+* @default-font: 'helvetica neue', tahoma, \5B8B\4F53, sans-serif;
+* @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti,
+  \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
+* @code-font: monaco, menlo, consolas, monospace;
+*/
+/**
+* 中文优先使用冬青黑体简体(OS X)、微软雅黑(Windows)和文泉驿微米黑(Linux)
+* 西文使用 tahoma
+* 1. 防止元素中「font-family」不能继承
+* 2. 西文字体和 OS X 字体写在前面
+* 3. Opera 12.1 之前版本不支持中文字体的英文名称
+* 4. 微软雅黑「\5FAE\8F6F\96C5\9ED1」,中易宋体「\5B8B\4F53」
+*/
+body,
+button, input, select, textarea {
+  font-family: 'helvetica neue',arial,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+  -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+  /* 5 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+  /* 5 */ }
+
+/**
+* 中文小于 12px 可读性很差
+* 1. 统一 IE 6-7 中字体大小
+* 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
+h1 {
+  font-size: 36px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 22px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  font-size: 12px; }
+
+/**
+* 修正「abbr」元素在 Firefox 外其他浏览器没有下划线的问题
+* 添加问号光标，明确语义
+*/
+abbr,
+acronym {
+  border-bottom: 1px dotted;
+  /* 1 */
+  cursor: help;
+  /* 2 */ }
+
+/**
+* Firefox3+，Safari4/5 和 Chrome 中统一设置为粗体
+*/
+b,
+strong {
+  font-weight: bold; }
+
+/**
+* 修正 Safari5 和 Chrome 中没有样式的问题
+*/
+dfn {
+  font-style: italic; }
+
+/**
+* 修正 Firefox 和其他浏览器之间的差异
+*/
+hr {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+* 网页标记，荧光笔
+* 修正 IE6-11 中没有样式的问题
+*/
+mark {
+  background-color: #D2E5FF;
+  color: #000; }
+
+/**
+* 统一代码的字体设置
+* 字体要能明确区分数字 0 和字母 o
+* Mac 优先使用 Monaco，Windows 优先使用 Consolas
+* XP自带 Courier New
+* Windows 7开始自带的 Consolas
+* Mac上自带的Monaco，Osaka-Mono
+*/
+code,
+kbd,
+pre,
+samp {
+  font-family: monaco, menlo, consolas, 'courier new', courier, monospace; }
+
+/**
+* 增强所有浏览器中 pre 标签中文本的可读性
+* 1. IE 6-7 不支持 pre-wrap
+* 2. pre 标签应当包含滚溢出
+*/
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  /* 1 */
+  word-wrap: break-word;
+  overflow: auto; }
+
+/**
+* 行内引用
+* IE 6-7 不支持 quotes 属性
+* 现代浏览器去除 quotes 内容
+*/
+q {
+  quotes: none; }
+
+/**
+* Safari 4 不支持<q>标签
+*/
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+/**
+* 中文网页<small>元素字号小于 12px 不易阅读
+*/
+small {
+  font-size: 85.7%;
+  /* 12/14=0.8571428571 */ }
+
+/**
+* 防止所有浏览器中的<sub>和<sup>影响行高
+* http://jsbin.com/usoyal/1/edit
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+ 表格
+ ========================================================================== */
+/**
+* 合并单元格边框
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/**
+* 修复 IE 中 th 不能继承 text-align 的问题并统一左对齐
+* http://jsbin.com/evoxif/2/edit
+*/
+th {
+  text-align: left; }
+
+/**
+* 单元格添加边框
+*/
+/**
+* 表头底部边框
+*/
+/* ==========================================================================
+ 嵌入元素
+ ========================================================================== */
+/**
+* 1. 去除 IE6-9 和 Firefox 3 中 a 内部 img 元素默认的边框
+* 2. 修正 IE8 图片消失bug
+* 3. 防止 img 指定「height」时图片高度不能按照宽度等比缩放，导致图片变形
+    http://jsbin.com/aJoTUca/2
+* 4. 让图片支持响应式
+* 5. 去除现代浏览器图片底部的空隙
+* 6. 修复 IE7 图片缩放失真
+*/
+img {
+  border: 0 none;
+  /* 1 */
+  width: auto\9;
+  /* 2 */
+  height: auto;
+  /* 3 */
+  max-width: 100%;
+  /* 4 */
+  vertical-align: top;
+  /* 5 */
+  -ms-interpolation-mode: bicubic;
+  /* 6 */ }
+
+/**
+* 修复 IE9 中的「overflow」的怪异表现
+*/
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+ 表单
+ ========================================================================== */
+/**
+* 定义一致的边框、外边距和内边距
+*/
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+* 1. 修正 IE 6-9 中颜色不能继承的问题
+* 2. 修正 Firefox3 中文字不换行的问题
+* 3. 修正 IE6-7 中怪异的对齐方式
+*/
+legend {
+  border: 0 none;
+  /* 1 */
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */ }
+
+/**
+* 1. 修正所有浏览器中字体不继承的问题
+* 2. 修正所有浏览器中字号不继承的问题
+* 3. 修正 Firefox 3+， Safari5 和 Chrome 中外边距不同的问题
+* 4. 改善在所有浏览器下的垂直对齐方式
+*/
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+  vertical-align: baseline;
+  /* 4 */
+  *vertical-align: middle;
+  /* 4 */ }
+
+/**
+* 修正 IE7 随着字数增加边距不断增加的问题
+*/
+input,
+button {
+  *overflow: visible; }
+
+/**
+* 统一各浏览器「text-transform」不会继承的问题
+* http://jsbin.com/iqecic/1/edit
+* http://tjvantoll.com/2012/07/10/default-browser-handling-of-the-css-text-transform-property/
+*/
+button,
+select {
+  text-transform: none; }
+
+/**
+* 1. 避免 Android 4.0.* 中的 WebKit bug ，该bug会破坏原生的
+ 「audio」 和「video」的控制器
+* 2. 更正 iOS 中无法设置可点击的「input」的问题
+* 3. 统一其他类型的「input」的光标样式
+*/
+button,
+html input[type="button"], input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+* 重置按钮禁用时光标样式
+*/
+button[disabled],
+input[disabled] {
+  cursor: default;
+  opacity: .6; }
+
+/**
+* 1. 修正 IE 8/9 box-sizing 被设置为「content-box」的问题
+* 2. 移除 IE 8/9 中多余的内边距
+* 3. 移除 IE7 中多余的内边距(IE6 中任然存在)
+*/
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */ }
+
+/**
+* 1. 修正 Safari 5 和 Chrome 中「appearance」被设置为「searchfield」的问题
+* 2. 修正 Safari 5 和 Chrome 中「box-sizing」被设置为 「border-box」的问题
+*/
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+/**
+* 1.移除 OS X 中 Safari5 和 Chrome 搜索框内侧的左边距
+* 2.如果需要隐藏清除按钮需要加上
+ input[type="search"]::-webkit-search-cancel-button
+*/
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+* 移除 Firefox 3+ 的内边距
+*/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+* 修正 Chrome 中 input [type="number"] 在特定高度和 font-size 时,
+* 下面一个箭头光标变成「cursor: text」
+* @demo: http://jsfiddle.net/FFXEc/
+* 动画演示：http://gtms04.alicdn.com/tps/i4/T18kd8FCtaXXc_FhcF-330-350.gif
+*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+* 1. 移除 IE6-11 中默认的垂直滚动条
+* 2. 禁止水平拖动，防止破坏布局
+*/
+textarea {
+  overflow: auto;
+  /* 1 */
+  resize: vertical;
+  /* 2 */ }
+
+/**
+* 修正 Chrome 30- option 中文字无法显示的问题
+* http://jsbin.com/avujas/1/edit
+*/
+select:disabled option:checked,
+option:disabled:checked {
+  color: #D2D2D2; }
+
+/**
+* 修正 Safari 3+, Chrome 1+ Placeholder 居中问题
+*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input {
+    line-height: normal !important; } }
+
+/**
+* 修正 Firefox 19+ Placeholder 设置了opacity 的问题
+*/
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: darkGray;
+  opacity: 1; }
+
+/**
+* label 元素给予手型，暗示此处可点击
+*/
+label {
+  cursor: pointer; }
+
+/**
+* 统一 select 样式, Firefox 中有 padding:1px 0
+* http://jsbin.com/avujas/1/edit
+*/
+select[size],
+select[multiple],
+select[size][multiple] {
+  border: 1px solid #AAA;
+  padding: 0; }
+
+/* ==========================================================================
+ HTML5 元素
+ ========================================================================== */
+/**
+* 修正未定义为「block」的元素
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+* 1. 修正未定义为「inline-block」的元素
+* 2. 修正 Chrome、Firefox、Opera 中 「progress」元素 vertical-align 默认值不一致
+*/
+audio,
+canvas,
+video,
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+* 1.防止现代浏览器将没有「controls」属性的 「audio」元素显示出来
+* 2.去掉 iOS 5 中多余的高度
+*/
+audio:not([controls]) {
+  display: none;
+  /* 1 */
+  height: 0;
+  /* 2 */ }
+
+/**
+* 修复 IE 7/8/9，Firefox 3 和 Safari 4 中 「hidden」属性不起作用的问题
+* 在IE、Safari、Firefox 22- 中隐藏「template」元素
+*/
+[hidden], template {
+  display: none; }
+
+/**
+* 为可拖动元素添加拖动的光标
+* http://jsbin.com/apavod/1/edit
+*/
+[draggable] {
+  cursor: move; }
+
+/**
+* 居中 HTML5 dialog 元素
+* Chrome 31 支持，需开启 chrome://flags/#enable-experimental-web-platform-features
+* Chrome 28 之前、Firefox 中不支持 height:fit-content;
+ https://src.chromium.org/viewvc/blink?revision=148314&view=revision
+* ::backdrop 定义遮罩样式
+* @demo: http://jsbin.com/iPACab/1
+*/
+dialog {
+  border: 1px solid;
+  padding: 0;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
+
+dialog::-webkit-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+dialog::backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+/* h1 ~ h6 字体大小 */
+/* 
+	颜色 
+	primary danger info warning dark gray
+*/
+@font-face {
+  font-family: "iconfont";
+  src: url(./dist/0b13741afbaebb606c2d30e50810e3c2.eot);
+  src: url(./dist/0b13741afbaebb606c2d30e50810e3c2.eot) format("embedded-opentype"), url(./dist/808319f443acdcc7ab6a687d6814e361.woff) format("woff"), url(./dist/69635e5aaf2b8d1dd7a8a4e9e49d1fbf.ttf) format("truetype"), url(./dist/1e4109c22fb351566d09c729770a62a7.svg) format("svg"); }
+
+.iconfont, .icon {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  line-height: 1;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-nanrentouxiang:before {
+  content: "\E651"; }
+
+.icon-xiajiantou:before {
+  content: "\E622"; }
+
+.icon-shangjiantou:before {
+  content: "\E623"; }
+
+.icon-sanjiaojiantouxia:before {
+  content: "\E656"; }
+
+.icon-lock:before {
+  content: "\E650"; }
+
+.icon-jianhao:before {
+  content: "\E64E"; }
+
+.icon-zhexianquyuxingupolylineshapedregion:before {
+  content: "\E655"; }
+
+.icon-shizhong:before {
+  content: "\E624"; }
+
+.icon-xiangyoujiantou2:before {
+  content: "\E654"; }
+
+.icon-weixinzhifu:before {
+  content: "\E625"; }
+
+.icon-appshusandian:before {
+  content: "\E626"; }
+
+.icon-chenggong:before {
+  content: "\E627"; }
+
+.icon-huoxuanzhong:before {
+  content: "\E652"; }
+
+.icon-jiahao:before {
+  content: "\E64F"; }
+
+.icon-triangle-copy-copy:before {
+  content: "\E628"; }
+
+.icon-loading-copy:before {
+  content: "\E629"; }
+
+.icon-chenggong1:before {
+  content: "\E62A"; }
+
+.icon-iconzhenghe31:before {
+  content: "\E62B"; }
+
+.icon-icohongbao:before {
+  content: "\E62C"; }
+
+.icon-icohongbaoyouhui:before {
+  content: "\E62D"; }
+
+.icon-icohuiyuan:before {
+  content: "\E62E"; }
+
+.icon-icohui:before {
+  content: "\E62F"; }
+
+.icon-icoji:before {
+  content: "\E630"; }
+
+.icon-icohome:before {
+  content: "\E631"; }
+
+.icon-icomap:before {
+  content: "\E632"; }
+
+.icon-icostar:before {
+  content: "\E633"; }
+
+.icon-icowifi:before {
+  content: "\E634"; }
+
+.icon-icochongzhihuodong:before {
+  content: "\E635"; }
+
+.icon-icochu:before {
+  content: "\E636"; }
+
+.icon-icochuzhiqia:before {
+  content: "\E637"; }
+
+.icon-icoerweima:before {
+  content: "\E638"; }
+
+.icon-icofanhui:before {
+  content: "\E639"; }
+
+.icon-icofujinmendian:before {
+  content: "\E63A"; }
+
+.icon-icoyanzhengma:before {
+  content: "\E63B"; }
+
+.icon-icoyouhuiquan:before {
+  content: "\E63C"; }
+
+.icon-icozhekou:before {
+  content: "\E63D"; }
+
+.icon-ico12:before {
+  content: "\E63E"; }
+
+.icon-icojifen:before {
+  content: "\E63F"; }
+
+.icon-icojifenhuodong:before {
+  content: "\E640"; }
+
+.icon-icojiasu:before {
+  content: "\E641"; }
+
+.icon-icolipin:before {
+  content: "\E642"; }
+
+.icon-icomendian:before {
+  content: "\E643"; }
+
+.icon-icoshengri:before {
+  content: "\E644"; }
+
+.icon-icoshouji:before {
+  content: "\E645"; }
+
+.icon-icotequan:before {
+  content: "\E646"; }
+
+.icon-icoxiaofeiyouhui:before {
+  content: "\E647"; }
+
+.icon-icoxingbie:before {
+  content: "\E648"; }
+
+.icon-bangzhu:before {
+  content: "\E649"; }
+
+.icon-daohangico:before {
+  content: "\E64A"; }
+
+.icon-kongico:before {
+  content: "\E64B"; }
+
+.icon-jiayouzhanico:before {
+  content: "\E64C"; }
+
+.icon-jiantou:before {
+  content: "\E64D"; }
+
+.icon-rentouliangrenhover:before {
+  content: "\E653"; }
+
+.icon-copy:before {
+  content: "\E600"; }
+
+.icon-anonymous-iconfont:before {
+  content: "\E601"; }
+
+.icon-copy1:before {
+  content: "\E602"; }
+
+.icon-copy2:before {
+  content: "\E603"; }
+
+.icon-anonymous-iconfont1:before {
+  content: "\E604"; }
+
+.icon-danxuanweixuan:before {
+  content: "\E605"; }
+
+.icon-danxuanxuanze:before {
+  content: "\E606"; }
+
+.icon-fuxuanbukexuan:before {
+  content: "\E607"; }
+
+.icon-fuxuanweixuan:before {
+  content: "\E608"; }
+
+.icon-fuxuanxuanze:before {
+  content: "\E609"; }
+
+.icon-anquanzhongxin:before {
+  content: "\E60A"; }
+
+.icon-chenggongtubiao:before {
+  content: "\E60B"; }
+
+.icon-cuowu:before {
+  content: "\E60C"; }
+
+.icon-cuowutubiao:before {
+  content: "\E60D"; }
+
+.icon-jibenshezhi:before {
+  content: "\E60E"; }
+
+.icon-jiaoyiguanli:before {
+  content: "\E60F"; }
+
+.icon-mendian:before {
+  content: "\E610"; }
+
+.icon-guanbitubiaoanniu:before {
+  content: "\E611"; }
+
+.icon-huiyuanqia:before {
+  content: "\E612"; }
+
+.icon-jifen:before {
+  content: "\E613"; }
+
+.icon-quedingxiaotubiao:before {
+  content: "\E614"; }
+
+.icon-rili:before {
+  content: "\E615"; }
+
+.icon-shijian:before {
+  content: "\E616"; }
+
+.icon-sousuo:before {
+  content: "\E617"; }
+
+.icon-quxiaoxiaotubiao:before {
+  content: "\E618"; }
+
+.icon-xialajiantou:before {
+  content: "\E619"; }
+
+.icon-xianjinhongbao:before {
+  content: "\E61A"; }
+
+.icon-xinxitubiao:before {
+  content: "\E61B"; }
+
+.icon-yingxiao:before {
+  content: "\E61C"; }
+
+.icon-yonghu:before {
+  content: "\E61D"; }
+
+.icon-zhengque:before {
+  content: "\E61E"; }
+
+.icon-zhuyi:before {
+  content: "\E61F"; }
+
+.icon-xialajiantoufuben:before {
+  content: "\E620"; }
+
+.icon-chuzhiqia:before {
+  content: "\E621"; }
+
+.icon-jiahao1:before {
+  content: "\E657"; }
+
+.icon-jianhao1:before {
+  content: "\E658"; }
+
+body {
+  font: 13px/1.7 PingFangSC-Regular, microsoft yahei, Arial, sans-serif;
+  color: #444; }
+
+/* tb tb-cell table table-cell*/
+.tb, .row, .row-auto, .rules-introduce, .control-group-auto, .step-title, .form-ver .col.label, .form-ver .control-group .label.col-percent7, .control-group .form-ver .label.col-percent7, .form-ver .control-group-auto .label.col-percent7, .control-group-auto .form-ver .label.col-percent7, .form-ver .control-group .label.col-wauto, .control-group .form-ver .label.col-wauto, .form-ver .control-group-auto .label.col-wauto, .control-group-auto .form-ver .label.col-wauto, .form-ver .control-group .label.col-percent3, .control-group .form-ver .label.col-percent3, .form-ver .control-group-auto .label.col-percent3, .control-group-auto .form-ver .label.col-percent3, .control-group {
+  display: table;
+  table-layout: fixed;
+  border-spacing: initial; }
+
+.tb-cell, .row .col, .row-auto .col, .rules-introduce .col, .control-group-auto .col, .step-title .col, .form-ver .col.label .col, .form-ver .control-group .label.col-percent7 .col, .control-group .form-ver .label.col-percent7 .col, .form-ver .control-group-auto .label.col-percent7 .col, .control-group-auto .form-ver .label.col-percent7 .col, .form-ver .control-group .label.col-wauto .col, .control-group .form-ver .label.col-wauto .col, .form-ver .control-group-auto .label.col-wauto .col, .control-group-auto .form-ver .label.col-wauto .col, .form-ver .control-group .label.col-percent3 .col, .control-group .form-ver .label.col-percent3 .col, .form-ver .control-group-auto .label.col-percent3 .col, .control-group-auto .form-ver .label.col-percent3 .col, .control-group .col, .row .control-group .col-percent7, .control-group .row .col-percent7, .row-auto .control-group .col-percent7, .control-group .row-auto .col-percent7, .rules-introduce .control-group .col-percent7, .control-group .rules-introduce .col-percent7, .control-group-auto .control-group .col-percent7, .control-group .control-group-auto .col-percent7, .step-title .control-group .col-percent7, .control-group .step-title .col-percent7, .form-ver .col.label .control-group .col-percent7, .control-group .form-ver .col.label .col-percent7, .form-ver .control-group .label.col-percent7 .col-percent7, .control-group .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group-auto .label.col-percent7 .control-group .col-percent7, .control-group .form-ver .control-group-auto .label.col-percent7 .col-percent7, .control-group-auto .form-ver .label.col-percent7 .control-group .col-percent7, .control-group .control-group-auto .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group .label.col-wauto .col-percent7, .control-group .form-ver .label.col-wauto .col-percent7, .form-ver .control-group-auto .label.col-wauto .control-group .col-percent7, .control-group .form-ver .control-group-auto .label.col-wauto .col-percent7, .control-group-auto .form-ver .label.col-wauto .control-group .col-percent7, .control-group .control-group-auto .form-ver .label.col-wauto .col-percent7, .form-ver .control-group .label.col-percent3 .col-percent7, .control-group .form-ver .label.col-percent3 .col-percent7, .form-ver .control-group-auto .label.col-percent3 .control-group .col-percent7, .control-group .form-ver .control-group-auto .label.col-percent3 .col-percent7, .control-group-auto .form-ver .label.col-percent3 .control-group .col-percent7, .control-group .control-group-auto .form-ver .label.col-percent3 .col-percent7, .control-group .col-percent7, .row .control-group-auto .col-percent7, .control-group-auto .row .col-percent7, .row-auto .control-group-auto .col-percent7, .control-group-auto .row-auto .col-percent7, .rules-introduce .control-group-auto .col-percent7, .control-group-auto .rules-introduce .col-percent7, .control-group-auto .col-percent7, .step-title .control-group-auto .col-percent7, .control-group-auto .step-title .col-percent7, .form-ver .col.label .control-group-auto .col-percent7, .control-group-auto .form-ver .col.label .col-percent7, .form-ver .control-group .label.col-percent7 .control-group-auto .col-percent7, .control-group-auto .form-ver .control-group .label.col-percent7 .col-percent7, .control-group .form-ver .label.col-percent7 .control-group-auto .col-percent7, .control-group-auto .control-group .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group-auto .label.col-percent7 .col-percent7, .control-group-auto .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group .label.col-wauto .control-group-auto .col-percent7, .control-group-auto .form-ver .control-group .label.col-wauto .col-percent7, .control-group .form-ver .label.col-wauto .control-group-auto .col-percent7, .control-group-auto .control-group .form-ver .label.col-wauto .col-percent7, .form-ver .control-group-auto .label.col-wauto .col-percent7, .control-group-auto .form-ver .label.col-wauto .col-percent7, .form-ver .control-group .label.col-percent3 .control-group-auto .col-percent7, .control-group-auto .form-ver .control-group .label.col-percent3 .col-percent7, .control-group .form-ver .label.col-percent3 .control-group-auto .col-percent7, .control-group-auto .control-group .form-ver .label.col-percent3 .col-percent7, .form-ver .control-group-auto .label.col-percent3 .col-percent7, .control-group-auto .form-ver .label.col-percent3 .col-percent7, .row .control-group .col-wauto, .control-group .row .col-wauto, .row-auto .control-group .col-wauto, .control-group .row-auto .col-wauto, .rules-introduce .control-group .col-wauto, .control-group .rules-introduce .col-wauto, .control-group-auto .control-group .col-wauto, .control-group .control-group-auto .col-wauto, .step-title .control-group .col-wauto, .control-group .step-title .col-wauto, .form-ver .col.label .control-group .col-wauto, .control-group .form-ver .col.label .col-wauto, .form-ver .control-group .label.col-percent7 .col-wauto, .control-group .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group-auto .label.col-percent7 .control-group .col-wauto, .control-group .form-ver .control-group-auto .label.col-percent7 .col-wauto, .control-group-auto .form-ver .label.col-percent7 .control-group .col-wauto, .control-group .control-group-auto .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group .label.col-wauto .col-wauto, .control-group .form-ver .label.col-wauto .col-wauto, .form-ver .control-group-auto .label.col-wauto .control-group .col-wauto, .control-group .form-ver .control-group-auto .label.col-wauto .col-wauto, .control-group-auto .form-ver .label.col-wauto .control-group .col-wauto, .control-group .control-group-auto .form-ver .label.col-wauto .col-wauto, .form-ver .control-group .label.col-percent3 .col-wauto, .control-group .form-ver .label.col-percent3 .col-wauto, .form-ver .control-group-auto .label.col-percent3 .control-group .col-wauto, .control-group .form-ver .control-group-auto .label.col-percent3 .col-wauto, .control-group-auto .form-ver .label.col-percent3 .control-group .col-wauto, .control-group .control-group-auto .form-ver .label.col-percent3 .col-wauto, .control-group .col-wauto, .row .control-group-auto .col-wauto, .control-group-auto .row .col-wauto, .row-auto .control-group-auto .col-wauto, .control-group-auto .row-auto .col-wauto, .rules-introduce .control-group-auto .col-wauto, .control-group-auto .rules-introduce .col-wauto, .control-group-auto .col-wauto, .step-title .control-group-auto .col-wauto, .control-group-auto .step-title .col-wauto, .form-ver .col.label .control-group-auto .col-wauto, .control-group-auto .form-ver .col.label .col-wauto, .form-ver .control-group .label.col-percent7 .control-group-auto .col-wauto, .control-group-auto .form-ver .control-group .label.col-percent7 .col-wauto, .control-group .form-ver .label.col-percent7 .control-group-auto .col-wauto, .control-group-auto .control-group .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group-auto .label.col-percent7 .col-wauto, .control-group-auto .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group .label.col-wauto .control-group-auto .col-wauto, .control-group-auto .form-ver .control-group .label.col-wauto .col-wauto, .control-group .form-ver .label.col-wauto .control-group-auto .col-wauto, .control-group-auto .control-group .form-ver .label.col-wauto .col-wauto, .form-ver .control-group-auto .label.col-wauto .col-wauto, .control-group-auto .form-ver .label.col-wauto .col-wauto, .form-ver .control-group .label.col-percent3 .control-group-auto .col-wauto, .control-group-auto .form-ver .control-group .label.col-percent3 .col-wauto, .control-group .form-ver .label.col-percent3 .control-group-auto .col-wauto, .control-group-auto .control-group .form-ver .label.col-percent3 .col-wauto, .form-ver .control-group-auto .label.col-percent3 .col-wauto, .control-group-auto .form-ver .label.col-percent3 .col-wauto, .row .control-group .col-percent3, .control-group .row .col-percent3, .row-auto .control-group .col-percent3, .control-group .row-auto .col-percent3, .rules-introduce .control-group .col-percent3, .control-group .rules-introduce .col-percent3, .control-group-auto .control-group .col-percent3, .control-group .control-group-auto .col-percent3, .step-title .control-group .col-percent3, .control-group .step-title .col-percent3, .form-ver .col.label .control-group .col-percent3, .control-group .form-ver .col.label .col-percent3, .form-ver .control-group .label.col-percent7 .col-percent3, .control-group .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group-auto .label.col-percent7 .control-group .col-percent3, .control-group .form-ver .control-group-auto .label.col-percent7 .col-percent3, .control-group-auto .form-ver .label.col-percent7 .control-group .col-percent3, .control-group .control-group-auto .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group .label.col-wauto .col-percent3, .control-group .form-ver .label.col-wauto .col-percent3, .form-ver .control-group-auto .label.col-wauto .control-group .col-percent3, .control-group .form-ver .control-group-auto .label.col-wauto .col-percent3, .control-group-auto .form-ver .label.col-wauto .control-group .col-percent3, .control-group .control-group-auto .form-ver .label.col-wauto .col-percent3, .form-ver .control-group .label.col-percent3 .col-percent3, .control-group .form-ver .label.col-percent3 .col-percent3, .form-ver .control-group-auto .label.col-percent3 .control-group .col-percent3, .control-group .form-ver .control-group-auto .label.col-percent3 .col-percent3, .control-group-auto .form-ver .label.col-percent3 .control-group .col-percent3, .control-group .control-group-auto .form-ver .label.col-percent3 .col-percent3, .control-group .col-percent3, .row .control-group-auto .col-percent3, .control-group-auto .row .col-percent3, .row-auto .control-group-auto .col-percent3, .control-group-auto .row-auto .col-percent3, .rules-introduce .control-group-auto .col-percent3, .control-group-auto .rules-introduce .col-percent3, .control-group-auto .col-percent3, .step-title .control-group-auto .col-percent3, .control-group-auto .step-title .col-percent3, .form-ver .col.label .control-group-auto .col-percent3, .control-group-auto .form-ver .col.label .col-percent3, .form-ver .control-group .label.col-percent7 .control-group-auto .col-percent3, .control-group-auto .form-ver .control-group .label.col-percent7 .col-percent3, .control-group .form-ver .label.col-percent7 .control-group-auto .col-percent3, .control-group-auto .control-group .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group-auto .label.col-percent7 .col-percent3, .control-group-auto .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group .label.col-wauto .control-group-auto .col-percent3, .control-group-auto .form-ver .control-group .label.col-wauto .col-percent3, .control-group .form-ver .label.col-wauto .control-group-auto .col-percent3, .control-group-auto .control-group .form-ver .label.col-wauto .col-percent3, .form-ver .control-group-auto .label.col-wauto .col-percent3, .control-group-auto .form-ver .label.col-wauto .col-percent3, .form-ver .control-group .label.col-percent3 .control-group-auto .col-percent3, .control-group-auto .form-ver .control-group .label.col-percent3 .col-percent3, .control-group .form-ver .label.col-percent3 .control-group-auto .col-percent3, .control-group-auto .control-group .form-ver .label.col-percent3 .col-percent3, .form-ver .control-group-auto .label.col-percent3 .col-percent3, .control-group-auto .form-ver .label.col-percent3 .col-percent3, .row .col-top, .row-auto .col-top, .rules-introduce .col-top, .control-group-auto .col-top, .step-title .col-top, .form-ver .col.label .col-top, .form-ver .control-group .label.col-percent7 .col-top, .control-group .form-ver .label.col-percent7 .col-top, .form-ver .control-group-auto .label.col-percent7 .col-top, .control-group-auto .form-ver .label.col-percent7 .col-top, .form-ver .control-group .label.col-wauto .col-top, .control-group .form-ver .label.col-wauto .col-top, .form-ver .control-group-auto .label.col-wauto .col-top, .control-group-auto .form-ver .label.col-wauto .col-top, .form-ver .control-group .label.col-percent3 .col-top, .control-group .form-ver .label.col-percent3 .col-top, .form-ver .control-group-auto .label.col-percent3 .col-top, .control-group-auto .form-ver .label.col-percent3 .col-top, .control-group .col-top, .row-auto .col-auto, .rules-introduce .col-auto, .control-group-auto .col-auto, .step-title .col-auto, .row-auto .col-auto-top, .rules-introduce .col-auto-top, .control-group-auto .col-auto-top, .step-title .col-auto-top {
+  display: table-cell;
+  vertical-align: middle;
+  word-break: break-all; }
+
+.tb, .row, .row-auto, .rules-introduce, .control-group-auto, .step-title, .form-ver .col.label, .form-ver .control-group .label.col-percent7, .control-group .form-ver .label.col-percent7, .form-ver .control-group-auto .label.col-percent7, .control-group-auto .form-ver .label.col-percent7, .form-ver .control-group .label.col-wauto, .control-group .form-ver .label.col-wauto, .form-ver .control-group-auto .label.col-wauto, .control-group-auto .form-ver .label.col-wauto, .form-ver .control-group .label.col-percent3, .control-group .form-ver .label.col-percent3, .form-ver .control-group-auto .label.col-percent3, .control-group-auto .form-ver .label.col-percent3, .control-group {
+  box-sizing: border-box;
+  width: 100%; }
+
+/* pure-g ib */
+.ib-w, .ib-w.ib {
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+  text-rendering: optimizespeed;
+  font-family: PingFangSC-Regular, microsoft yahei, Arial, sans-serif;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start; }
+
+/*pure-u*/
+.ib {
+  display: inline-block;
+  /*display: inline;  IE < 8: fake inline-block */
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+  box-sizing: border-box; }
+
+/*pure-u*/
+.row .col-top, .row-auto .col-top, .rules-introduce .col-top, .control-group-auto .col-top, .step-title .col-top, .form-ver .col.label .col-top, .form-ver .control-group .label.col-percent7 .col-top, .control-group .form-ver .label.col-percent7 .col-top, .form-ver .control-group-auto .label.col-percent7 .col-top, .control-group-auto .form-ver .label.col-percent7 .col-top, .form-ver .control-group .label.col-wauto .col-top, .control-group .form-ver .label.col-wauto .col-top, .form-ver .control-group-auto .label.col-wauto .col-top, .control-group-auto .form-ver .label.col-wauto .col-top, .form-ver .control-group .label.col-percent3 .col-top, .control-group .form-ver .label.col-percent3 .col-top, .form-ver .control-group-auto .label.col-percent3 .col-top, .control-group-auto .form-ver .label.col-percent3 .col-top, .control-group .col-top {
+  vertical-align: top; }
+
+.row-auto, .rules-introduce, .control-group-auto, .step-title {
+  table-layout: auto; }
+  .row-auto .col-auto, .rules-introduce .col-auto, .control-group-auto .col-auto, .step-title .col-auto, .row-auto .col-auto-top, .rules-introduce .col-auto-top, .control-group-auto .col-auto-top, .step-title .col-auto-top {
+    width: 1px;
+    white-space: nowrap; }
+  .row-auto .col-auto-top, .rules-introduce .col-auto-top, .control-group-auto .col-auto-top, .step-title .col-auto-top {
+    vertical-align: top; }
+
+/* h1 ~ h6 字体大小 */
+.h1 {
+  font-size: 30px; }
+
+.h2 {
+  font-size: 24px; }
+
+.h3 {
+  font-size: 18px; }
+
+.h4 {
+  font-size: 16px; }
+
+.h5 {
+  font-size: 14px; }
+
+.h6 {
+  font-size: 12px; }
+
+/* 颜色  primary danger info warning dark gray */
+.primary, .btn-plain-primary, .btn-plain-primary-xl, .btn-plain-primary-xxl {
+  color: #2196F3;
+  border-color: #2196F3; }
+
+.primary-light, .btn-plain-primary-light, .btn-plain-primary:hover, .btn-plain-primary-xl:hover, .btn-plain-primary-xxl:hover {
+  color: #42A5F5;
+  border-color: #42A5F5; }
+
+.primary-deep, .btn-plain-primary-deep, .btn-plain-primary:active, .btn-plain-primary-xl:active, .btn-plain-primary-xxl:active {
+  color: #1E88E5;
+  border-color: #1E88E5; }
+
+.success, .btn-plain-success, .btn-plain-success-xl, .btn-plain-success-xxl {
+  color: #4CAF50;
+  border-color: #4CAF50; }
+
+.success-light, .btn-plain-success-light, .btn-plain-success:hover, .btn-plain-success-xl:hover, .btn-plain-success-xxl:hover {
+  color: #66BB6A;
+  border-color: #66BB6A; }
+
+.success-deep, .btn-plain-success-deep, .btn-plain-success:active, .btn-plain-success-xl:active, .btn-plain-success-xxl:active {
+  color: #43A047;
+  border-color: #43A047; }
+
+.info, .btn-plain-info, .btn-plain-info-xl, .btn-plain-info-xxl {
+  color: #00BCD4;
+  border-color: #00BCD4; }
+
+.info-light, .btn-plain-info-light, .btn-plain-info:hover, .btn-plain-info-xl:hover, .btn-plain-info-xxl:hover {
+  color: #26C6DA;
+  border-color: #26C6DA; }
+
+.info-deep, .btn-plain-info-deep, .btn-plain-info:active, .btn-plain-info-xl:active, .btn-plain-info-xxl:active {
+  color: #00ACC1;
+  border-color: #00ACC1; }
+
+.danger, .btn-plain-danger, .btn-plain-danger-xl, .btn-plain-danger-xxl {
+  color: #F44336;
+  border-color: #F44336; }
+
+.danger-light, .btn-plain-danger-light, .btn-plain-danger:hover, .btn-plain-danger-xl:hover, .btn-plain-danger-xxl:hover {
+  color: #EF5350;
+  border-color: #EF5350; }
+
+.danger-deep, .btn-plain-danger-deep, .btn-plain-danger:active, .btn-plain-danger-xl:active, .btn-plain-danger-xxl:active {
+  color: #E53935;
+  border-color: #E53935; }
+
+.warning, .btn-plain-warning, .btn-plain-warning-xl, .btn-plain-warning-xxl {
+  color: #FF5722;
+  border-color: #FF5722; }
+
+.warning-light, .btn-plain-warning-light, .btn-plain-warning:hover, .btn-plain-warning-xl:hover, .btn-plain-warning-xxl:hover {
+  color: #FF7043;
+  border-color: #FF7043; }
+
+.warning-deep, .btn-plain-warning-deep, .btn-plain-warning:active, .btn-plain-warning-xl:active, .btn-plain-warning-xxl:active {
+  color: #F4511E;
+  border-color: #F4511E; }
+
+.dark, .btn-plain-dark, .btn-plain-dark-xl, .btn-plain-dark-xxl {
+  color: #777777;
+  border-color: #777777; }
+
+.dark-light, .btn-plain-dark-light, .btn-plain-dark:hover, .btn-plain-dark-xl:hover, .btn-plain-dark-xxl:hover {
+  color: #999999;
+  border-color: #999999; }
+
+.dark-deep, .btn-plain-dark-deep, .btn-plain-dark:active, .btn-plain-dark-xl:active, .btn-plain-dark-xxl:active {
+  color: #444444;
+  border-color: #444444; }
+
+.gray, .btn-plain-gray, .btn-plain-gray-xl, .btn-plain-gray-xxl {
+  color: #F5F5F5;
+  border-color: #F5F5F5; }
+
+.gray-light, .btn-plain-gray-light, .btn-plain-gray:hover, .btn-plain-gray-xl:hover, .btn-plain-gray-xxl:hover {
+  color: #FCFCFC;
+  border-color: #FCFCFC; }
+
+.gray-deep, .btn-plain-gray-deep, .btn-plain-gray:active, .btn-plain-gray-xl:active, .btn-plain-gray-xxl:active {
+  color: #E9E9E9;
+  border-color: #E9E9E9; }
+
+.bg-primary, .btn-primary, .btn-primary-xl, .btn-primary-xxl {
+  background: #2196F3;
+  color: #fff; }
+
+.bg-primary-light, .btn-primary-light, .btn-primary:hover, .btn-primary-xl:hover, .btn-primary-xxl:hover {
+  background: #42A5F5;
+  color: #fff; }
+
+.bg-primary-deep, .btn-primary-deep, .btn-primary:active, .btn-primary-xl:active, .btn-primary-xxl:active {
+  background: #1E88E5;
+  color: #fff; }
+
+.bg-success, .btn-success, .btn-success-xl, .btn-success-xxl {
+  background: #4CAF50;
+  color: #fff; }
+
+.bg-success-light, .btn-success-light, .btn-success:hover, .btn-success-xl:hover, .btn-success-xxl:hover {
+  background: #66BB6A;
+  color: #fff; }
+
+.bg-success-deep, .btn-success-deep, .btn-success:active, .btn-success-xl:active, .btn-success-xxl:active {
+  background: #43A047;
+  color: #fff; }
+
+.bg-info, .btn-info, .btn-info-xl, .btn-info-xxl {
+  background: #00BCD4;
+  color: #fff; }
+
+.bg-info-light, .btn-info-light, .btn-info:hover, .btn-info-xl:hover, .btn-info-xxl:hover {
+  background: #26C6DA;
+  color: #fff; }
+
+.bg-info-deep, .btn-info-deep, .btn-info:active, .btn-info-xl:active, .btn-info-xxl:active {
+  background: #00ACC1;
+  color: #fff; }
+
+.bg-danger, .btn-danger, .btn-danger-xl, .btn-danger-xxl {
+  background: #F44336;
+  color: #fff; }
+
+.bg-danger-light, .btn-danger-light, .btn-danger:hover, .btn-danger-xl:hover, .btn-danger-xxl:hover {
+  background: #EF5350;
+  color: #fff; }
+
+.bg-danger-deep, .btn-danger-deep, .btn-danger:active, .btn-danger-xl:active, .btn-danger-xxl:active {
+  background: #E53935;
+  color: #fff; }
+
+.bg-warning, .btn-warning, .btn-warning-xl, .btn-warning-xxl {
+  background: #FF5722;
+  color: #fff; }
+
+.bg-warning-light, .btn-warning-light, .btn-warning:hover, .btn-warning-xl:hover, .btn-warning-xxl:hover {
+  background: #FF7043;
+  color: #fff; }
+
+.bg-warning-deep, .btn-warning-deep, .btn-warning:active, .btn-warning-xl:active, .btn-warning-xxl:active {
+  background: #F4511E;
+  color: #fff; }
+
+.bg-dark, .btn-dark, .btn-dark-xl, .btn-dark-xxl {
+  background: #777777;
+  color: #fff; }
+
+.bg-dark-light, .btn-dark-light, .btn-dark:hover, .btn-dark-xl:hover, .btn-dark-xxl:hover {
+  background: #999999;
+  color: #fff; }
+
+.bg-dark-deep, .btn-dark-deep, .btn-dark:active, .btn-dark-xl:active, .btn-dark-xxl:active {
+  background: #444444;
+  color: #fff; }
+
+.bg-gray, .btn-gray, .btn-gray-xl, .btn-gray-xxl {
+  background: #F5F5F5;
+  color: #fff; }
+
+.bg-gray-light, .btn-gray-light, .btn-gray:hover, .btn-gray-xl:hover, .btn-gray-xxl:hover {
+  background: #FCFCFC;
+  color: #fff; }
+
+.bg-gray-deep, .btn-gray-deep, .btn-gray:active, .btn-gray-xl:active, .btn-gray-xxl:active {
+  background: #E9E9E9;
+  color: #fff; }
+
+.desc, .msg-desc {
+  font-size: 13px; }
+
+.icon-msg {
+  color: #999999; }
+  .icon-msg .icon {
+    padding-right: 6px; }
+
+.msg-desc {
+  color: #999999; }
+
+.btn, .btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.btn, .btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  -webkit-touch-action: manipulation;
+  -moz-touch-action: manipulation;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation; }
+
+.btn, .btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  box-sizing: content-box;
+  width: auto;
+  border: 0;
+  *border: 0 none;
+  outline: none; }
+
+.disabled.btn-primary-light, .disabled.btn-primary-deep, .disabled.btn-primary, .disabled.btn-success-light, .disabled.btn-success-deep, .disabled.btn-success, .disabled.btn-info-light, .disabled.btn-info-deep, .disabled.btn-info, .disabled.btn-danger-light, .disabled.btn-danger-deep, .disabled.btn-danger, .disabled.btn-warning-light, .disabled.btn-warning-deep, .disabled.btn-warning, .disabled.btn-dark-light, .disabled.btn-dark-deep, .disabled.btn-dark, .disabled.btn-gray-light, .disabled.btn-gray-deep, .disabled.btn-gray, .disabled.btn-plain-primary-light, .disabled.btn-plain-primary-deep, .disabled.btn-plain-primary, .disabled.btn-plain-success-light, .disabled.btn-plain-success-deep, .disabled.btn-plain-success, .disabled.btn-plain-info-light, .disabled.btn-plain-info-deep, .disabled.btn-plain-info, .disabled.btn-plain-danger-light, .disabled.btn-plain-danger-deep, .disabled.btn-plain-danger, .disabled.btn-plain-warning-light, .disabled.btn-plain-warning-deep, .disabled.btn-plain-warning, .disabled.btn-plain-dark-light, .disabled.btn-plain-dark-deep, .disabled.btn-plain-dark, .disabled.btn-plain-gray-light, .disabled.btn-plain-gray-deep, .disabled.btn-plain-gray, .disabled.btn-primary-xl, .disabled.btn-success-xl, .disabled.btn-info-xl, .disabled.btn-danger-xl, .disabled.btn-warning-xl, .disabled.btn-dark-xl, .disabled.btn-gray-xl, .disabled.btn-plain-primary-xl, .disabled.btn-plain-success-xl, .disabled.btn-plain-info-xl, .disabled.btn-plain-danger-xl, .disabled.btn-plain-warning-xl, .disabled.btn-plain-dark-xl, .disabled.btn-plain-gray-xl, .disabled.btn-primary-xxl, .disabled.btn-success-xxl, .disabled.btn-info-xxl, .disabled.btn-danger-xxl, .disabled.btn-warning-xxl, .disabled.btn-dark-xxl, .disabled.btn-gray-xxl, .disabled.btn-plain-primary-xxl, .disabled.btn-plain-success-xxl, .disabled.btn-plain-info-xxl, .disabled.btn-plain-danger-xxl, .disabled.btn-plain-warning-xxl, .disabled.btn-plain-dark-xxl, .disabled.btn-plain-gray-xxl, [disabled].btn-primary-light, [disabled].btn-primary-deep, [disabled].btn-primary, [disabled].btn-success-light, [disabled].btn-success-deep, [disabled].btn-success, [disabled].btn-info-light, [disabled].btn-info-deep, [disabled].btn-info, [disabled].btn-danger-light, [disabled].btn-danger-deep, [disabled].btn-danger, [disabled].btn-warning-light, [disabled].btn-warning-deep, [disabled].btn-warning, [disabled].btn-dark-light, [disabled].btn-dark-deep, [disabled].btn-dark, [disabled].btn-gray-light, [disabled].btn-gray-deep, [disabled].btn-gray, [disabled].btn-plain-primary-light, [disabled].btn-plain-primary-deep, [disabled].btn-plain-primary, [disabled].btn-plain-success-light, [disabled].btn-plain-success-deep, [disabled].btn-plain-success, [disabled].btn-plain-info-light, [disabled].btn-plain-info-deep, [disabled].btn-plain-info, [disabled].btn-plain-danger-light, [disabled].btn-plain-danger-deep, [disabled].btn-plain-danger, [disabled].btn-plain-warning-light, [disabled].btn-plain-warning-deep, [disabled].btn-plain-warning, [disabled].btn-plain-dark-light, [disabled].btn-plain-dark-deep, [disabled].btn-plain-dark, [disabled].btn-plain-gray-light, [disabled].btn-plain-gray-deep, [disabled].btn-plain-gray, [disabled].btn-primary-xl, [disabled].btn-success-xl, [disabled].btn-info-xl, [disabled].btn-danger-xl, [disabled].btn-warning-xl, [disabled].btn-dark-xl, [disabled].btn-gray-xl, [disabled].btn-plain-primary-xl, [disabled].btn-plain-success-xl, [disabled].btn-plain-info-xl, [disabled].btn-plain-danger-xl, [disabled].btn-plain-warning-xl, [disabled].btn-plain-dark-xl, [disabled].btn-plain-gray-xl, [disabled].btn-primary-xxl, [disabled].btn-success-xxl, [disabled].btn-info-xxl, [disabled].btn-danger-xxl, [disabled].btn-warning-xxl, [disabled].btn-dark-xxl, [disabled].btn-gray-xxl, [disabled].btn-plain-primary-xxl, [disabled].btn-plain-success-xxl, [disabled].btn-plain-info-xxl, [disabled].btn-plain-danger-xxl, [disabled].btn-plain-warning-xxl, [disabled].btn-plain-dark-xxl, [disabled].btn-plain-gray-xxl {
+  opacity: .3;
+  cursor: not-allowed; }
+
+.btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  border: 1px solid transparent; }
+
+.btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  min-width: 52px;
+  padding: 10px 18px;
+  margin-bottom: 0;
+  border-radius: 3px; }
+
+.btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl {
+  border: 1px solid transparent; }
+
+.btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray {
+  font-size: 13px; }
+
+.btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl {
+  font-size: 16px;
+  padding: 10px 27px; }
+
+.btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  font-size: 18px;
+  padding: 14px 43px; }
+
+.btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
+  background: transparent;
+  border-width: 1px;
+  border-style: solid; }
+
+.btn-plain-primary:active {
+  background: #f5f5f5; }
+
+.btn-plain-primary-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-primary-xxl:active {
+  background: #f5f5f5; }
+
+.btn-plain-success:active {
+  background: #f5f5f5; }
+
+.btn-plain-success-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-success-xxl:active {
+  background: #f5f5f5; }
+
+.btn-plain-info:active {
+  background: #f5f5f5; }
+
+.btn-plain-info-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-info-xxl:active {
+  background: #f5f5f5; }
+
+.btn-plain-danger:active {
+  background: #f5f5f5; }
+
+.btn-plain-danger-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-danger-xxl:active {
+  background: #f5f5f5; }
+
+.btn-plain-warning:active {
+  background: #f5f5f5; }
+
+.btn-plain-warning-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-warning-xxl:active {
+  background: #f5f5f5; }
+
+.btn-plain-dark:active {
+  background: #f5f5f5; }
+
+.btn-plain-dark-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-dark-xxl:active {
+  background: #f5f5f5; }
+
+.btn-plain-gray:active {
+  background: #f5f5f5; }
+
+.btn-plain-gray-xl:active {
+  background: #f5f5f5; }
+
+.btn-plain-gray-xxl:active {
+  background: #f5f5f5; }
+
+.switchbtn .switchbtnchoose {
+  display: none; }
+  .switchbtn .switchbtnchoose + label {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    border-radius: 15px;
+    transition: all .5 ease-in;
+    cursor: point;
+    display: block; }
+    .switchbtn .switchbtnchoose + label:before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 22px;
+      height: 22px;
+      background: #fff;
+      z-index: 2;
+      transition: all .5 ease-in;
+      border-radius: 50%;
+      content: ""; }
+    .switchbtn .switchbtnchoose + label span.end {
+      opacity: 0;
+      z-index: 1;
+      color: #fff; }
+    .switchbtn .switchbtnchoose + label span.begin {
+      opacity: 1;
+      position: absolute;
+      top: 0px;
+      left: 25px;
+      z-index: 1;
+      color: #43A047; }
+    .switchbtn .switchbtnchoose + label span.hlh {
+      height: 24px;
+      line-height: 24px; }
+    .switchbtn .switchbtnchoose + label:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E9E9E9;
+      transition: all .5 ease-in;
+      content: "";
+      border-radius: 15px; }
+  .switchbtn .switchbtnchoose:checked + label:before {
+    position: absolute;
+    top: 1px;
+    left: 24px;
+    z-index: 2;
+    content: "";
+    background: #fff; }
+  .switchbtn .switchbtnchoose:checked + label span.end {
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 5px; }
+  .switchbtn .switchbtnchoose:checked + label span.begin {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 25px; }
+  .switchbtn .switchbtnchoose:checked + label span.hlh {
+    height: 24px;
+    line-height: 24px; }
+  .switchbtn .switchbtnchoose:checked + label:after {
+    position: absolute;
+    top: 0px;
+    background: #43A047; }
+
+.switchbtn-xs .switchbtnchoose {
+  display: none; }
+  .switchbtn-xs .switchbtnchoose + label {
+    position: relative;
+    width: 32px;
+    height: 16px;
+    border-radius: 15px;
+    transition: all .5 ease-in;
+    cursor: point;
+    display: block; }
+    .switchbtn-xs .switchbtnchoose + label:before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      z-index: 2;
+      transition: all .5 ease-in;
+      border-radius: 50%;
+      content: ""; }
+    .switchbtn-xs .switchbtnchoose + label span.end {
+      opacity: 0;
+      z-index: 1;
+      color: #fff; }
+    .switchbtn-xs .switchbtnchoose + label span.begin {
+      opacity: 1;
+      position: absolute;
+      top: 0px;
+      left: 17px;
+      z-index: 1;
+      color: #43A047; }
+    .switchbtn-xs .switchbtnchoose + label span.hlh {
+      height: 16px;
+      line-height: 16px; }
+    .switchbtn-xs .switchbtnchoose + label:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E9E9E9;
+      transition: all .5 ease-in;
+      content: "";
+      border-radius: 15px; }
+  .switchbtn-xs .switchbtnchoose:checked + label:before {
+    position: absolute;
+    top: 1px;
+    left: 16px;
+    z-index: 2;
+    content: "";
+    background: #fff; }
+  .switchbtn-xs .switchbtnchoose:checked + label span.end {
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 5px; }
+  .switchbtn-xs .switchbtnchoose:checked + label span.begin {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 17px; }
+  .switchbtn-xs .switchbtnchoose:checked + label span.hlh {
+    height: 16px;
+    line-height: 16px; }
+  .switchbtn-xs .switchbtnchoose:checked + label:after {
+    position: absolute;
+    top: 0px;
+    background: #43A047; }
+
+.switchbtn-sm .switchbtnchoose {
+  display: none; }
+  .switchbtn-sm .switchbtnchoose + label {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    border-radius: 15px;
+    transition: all .5 ease-in;
+    cursor: point;
+    display: block; }
+    .switchbtn-sm .switchbtnchoose + label:before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      z-index: 2;
+      transition: all .5 ease-in;
+      border-radius: 50%;
+      content: ""; }
+    .switchbtn-sm .switchbtnchoose + label span.end {
+      opacity: 0;
+      z-index: 1;
+      color: #fff; }
+    .switchbtn-sm .switchbtnchoose + label span.begin {
+      opacity: 1;
+      position: absolute;
+      top: 0px;
+      left: 21px;
+      z-index: 1;
+      color: #43A047; }
+    .switchbtn-sm .switchbtnchoose + label span.hlh {
+      height: 20px;
+      line-height: 20px; }
+    .switchbtn-sm .switchbtnchoose + label:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E9E9E9;
+      transition: all .5 ease-in;
+      content: "";
+      border-radius: 15px; }
+  .switchbtn-sm .switchbtnchoose:checked + label:before {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    z-index: 2;
+    content: "";
+    background: #fff; }
+  .switchbtn-sm .switchbtnchoose:checked + label span.end {
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 5px; }
+  .switchbtn-sm .switchbtnchoose:checked + label span.begin {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 21px; }
+  .switchbtn-sm .switchbtnchoose:checked + label span.hlh {
+    height: 20px;
+    line-height: 20px; }
+  .switchbtn-sm .switchbtnchoose:checked + label:after {
+    position: absolute;
+    top: 0px;
+    background: #43A047; }
+
+.switchbtn-lg .switchbtnchoose {
+  display: none; }
+  .switchbtn-lg .switchbtnchoose + label {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    border-radius: 15px;
+    transition: all .5 ease-in;
+    cursor: point;
+    display: block; }
+    .switchbtn-lg .switchbtnchoose + label:before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 26px;
+      height: 26px;
+      background: #fff;
+      z-index: 2;
+      transition: all .5 ease-in;
+      border-radius: 50%;
+      content: ""; }
+    .switchbtn-lg .switchbtnchoose + label span.end {
+      opacity: 0;
+      z-index: 1;
+      color: #fff; }
+    .switchbtn-lg .switchbtnchoose + label span.begin {
+      opacity: 1;
+      position: absolute;
+      top: 0px;
+      left: 29px;
+      z-index: 1;
+      color: #43A047; }
+    .switchbtn-lg .switchbtnchoose + label span.hlh {
+      height: 28px;
+      line-height: 28px; }
+    .switchbtn-lg .switchbtnchoose + label:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E9E9E9;
+      transition: all .5 ease-in;
+      content: "";
+      border-radius: 15px; }
+  .switchbtn-lg .switchbtnchoose:checked + label:before {
+    position: absolute;
+    top: 1px;
+    left: 28px;
+    z-index: 2;
+    content: "";
+    background: #fff; }
+  .switchbtn-lg .switchbtnchoose:checked + label span.end {
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 5px; }
+  .switchbtn-lg .switchbtnchoose:checked + label span.begin {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 29px; }
+  .switchbtn-lg .switchbtnchoose:checked + label span.hlh {
+    height: 28px;
+    line-height: 28px; }
+  .switchbtn-lg .switchbtnchoose:checked + label:after {
+    position: absolute;
+    top: 0px;
+    background: #43A047; }
+
+.switchbtn-words .switchbtnchoose {
+  display: none; }
+  .switchbtn-words .switchbtnchoose + label {
+    position: relative;
+    width: 72px;
+    height: 24px;
+    border-radius: 15px;
+    transition: all .5 ease-in;
+    cursor: point;
+    display: block; }
+    .switchbtn-words .switchbtnchoose + label:before {
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 22px;
+      height: 22px;
+      background: #fff;
+      z-index: 2;
+      transition: all .5 ease-in;
+      border-radius: 50%;
+      content: ""; }
+    .switchbtn-words .switchbtnchoose + label span.end {
+      opacity: 0;
+      z-index: 1;
+      color: #fff; }
+    .switchbtn-words .switchbtnchoose + label span.begin {
+      opacity: 1;
+      position: absolute;
+      top: 0px;
+      left: 25px;
+      z-index: 1;
+      color: #43A047; }
+    .switchbtn-words .switchbtnchoose + label span.hlh {
+      height: 24px;
+      line-height: 24px; }
+    .switchbtn-words .switchbtnchoose + label:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E9E9E9;
+      transition: all .5 ease-in;
+      content: "";
+      border-radius: 15px; }
+  .switchbtn-words .switchbtnchoose:checked + label:before {
+    position: absolute;
+    top: 1px;
+    left: 48px;
+    z-index: 2;
+    content: "";
+    background: #fff; }
+  .switchbtn-words .switchbtnchoose:checked + label span.end {
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 5px; }
+  .switchbtn-words .switchbtnchoose:checked + label span.begin {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 25px; }
+  .switchbtn-words .switchbtnchoose:checked + label span.hlh {
+    height: 24px;
+    line-height: 24px; }
+  .switchbtn-words .switchbtnchoose:checked + label:after {
+    position: absolute;
+    top: 0px;
+    background: #43A047; }
+
+.switchbtn.dib {
+  display: inline-block; }
+
+.switchbtn-vam {
+  vertical-align: middle; }
+
+.checkboxinput {
+  display: none; }
+
+.nocheck {
+  color: #e8e8e8; }
+
+.check {
+  color: #2196F3; }
+
+.disabledcheck {
+  color: #e9e9e9; }
+
+.disabledcheck + span {
+  color: #777777; }
+
+.radioinput {
+  display: none; }
+
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  opacity: 0.3; }
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 13;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 400px;
+  width: 40%;
+  background-color: #fff;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  max-height: 90%;
+  overflow-y: auto; }
+
+.dialog-hd {
+  position: relative; }
+
+.dialog-hd a {
+  float: right;
+  position: absolute;
+  top: 20px;
+  right: 0; }
+
+.dialog-hd h2 {
+  padding: 20px 0; }
+
+.dialog-primary-title {
+  margin: 0 20px; }
+  .dialog-primary-title h2 {
+    font-size: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #e5e5e5; }
+  .dialog-primary-title a {
+    border-radius: 50%;
+    line-height: 1em;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: #777; }
+  .dialog-primary-title a:hover {
+    background-color: #EF5350;
+    color: #fff; }
+  .dialog-primary-title a:active {
+    background-color: #E53935;
+    color: #fff; }
+  .dialog-primary-title i {
+    font-size: 10px; }
+
+.dialog-bd {
+  padding: 20px; }
+
+.input-xl, .input-l, .input, .input-min, .input-s, .input-xs {
+  font-family: PingFang SC,Arial,"\82F9\65B9","\5FAE\8F6F\96C5\9ED1";
+  display: inline-block;
+  padding: 0 10px;
+  height: 34px;
+  font-size: 13px;
+  color: #444444;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  box-sizing: border-box; }
+  .input-xl:focus, .input-l:focus, .input:focus, .input-min:focus, .input-s:focus, .input-xs:focus {
+    border-color: #00BCD4;
+    outline: 0; }
+
+.input-xl {
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px; }
+
+.input-l {
+  height: 38px;
+  line-height: 38px;
+  font-size: 16px; }
+
+.input, .input-min {
+  height: 34px;
+  line-height: 34px;
+  font-size: 13px; }
+
+.input-s {
+  height: 32px;
+  line-height: 32px;
+  font-size: 13px; }
+
+.input-xs {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px; }
+
+.input-min {
+  width: 60px; }
+
+/* 添加左右滚动条 */
+.table-striped table {
+  /* table基础样式 */
+  width: 100%;
+  white-space: nowrap; }
+  .table-striped table th, .table-striped table td {
+    padding: 10px 20px;
+    border: 0;
+    line-height: 1.7em; }
+  .table-striped table th {
+    border-bottom: 2px solid #999;
+    font-weight: bold; }
+  .table-striped table td {
+    border-bottom: 1px solid #e9e9e9; }
+    .table-striped table td a {
+      color: #2196F3;
+      cursor: pointer; }
+    .table-striped table td i {
+      padding-right: 10px; }
+
+.table-striped {
+  overflow-y: hidden; }
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc; }
+
+.rules-introduce {
+  border-spacing: 20px;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  /*padding: 20px;*/
+  /*.rules-info {
+        @extend .col;
+        padding-right: 10px;        
+    }*/ }
+
+.form-ver .col.label, .form-ver .control-group .label.col-percent7, .control-group .form-ver .label.col-percent7, .form-ver .control-group-auto .label.col-percent7, .control-group-auto .form-ver .label.col-percent7, .form-ver .control-group .label.col-wauto, .control-group .form-ver .label.col-wauto, .form-ver .control-group-auto .label.col-wauto, .control-group-auto .form-ver .label.col-wauto, .form-ver .control-group .label.col-percent3, .control-group .form-ver .label.col-percent3, .form-ver .control-group-auto .label.col-percent3, .control-group-auto .form-ver .label.col-percent3 {
+  text-align: left; }
+
+.form-ver .deposit-right-auto {
+  max-width: 640px;
+  min-width: 440px; }
+
+.control-group-warpper .control-group, .control-group-warpper .control-group-auto {
+  margin-bottom: 30px; }
+
+.control-group .col-percent7, .control-group-auto .col-percent7 {
+  width: 70%;
+  position: relative; }
+
+.control-group .col-wauto, .control-group-auto .col-wauto {
+  width: auto;
+  position: relative; }
+
+.control-group .col-percent3, .control-group-auto .col-percent3 {
+  width: 30%; }
+
+.control-group .vertical-align, .control-group-auto .vertical-align {
+  vertical-align: middle; }
+
+.control-group .label, .control-group-auto .label {
+  font-weight: bold;
+  text-align: right;
+  line-height: 34px; }
+
+.control-group .desc-msg, .control-group-auto .desc-msg {
+  position: absolute; }
+
+.control-group .control-top, .control-group-auto .control-top {
+  line-height: 34px;
+  vertical-align: top; }
+
+.form-box-center {
+  min-width: 430px;
+  max-width: 680px;
+  margin: auto; }
+
+.sup-red {
+  color: red; }
+
+@media screen and (max-width: 1300px) {
+  /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+  .form-ver .deposit-right-auto {
+    max-width: 550px;
+    min-width: 440px; } }
+
+.has-error {
+  position: relative; }
+  .has-error .form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+    color: #F44336; }
+  .has-error .mandatory-msg {
+    color: #F44336;
+    position: absolute;
+    left: 0px;
+    line-height: 24px; }
+    .has-error .mandatory-msg .iconfont, .has-error .mandatory-msg .icon {
+      color: #F44336; }
+    .has-error .mandatory-msg i {
+      margin-right: 10px;
+      line-height: 24px;
+      vertical-align: bottom; }
+  .has-error input, .has-error .input, .has-error .input-min {
+    border-color: #F44336;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+
+.has-warning {
+  position: relative; }
+  .has-warning .form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+    color: #FF5722; }
+  .has-warning .mandatory-msg {
+    color: #FF5722;
+    position: absolute;
+    left: 0px;
+    line-height: 24px; }
+    .has-warning .mandatory-msg .iconfont, .has-warning .mandatory-msg .icon {
+      color: #FF5722; }
+    .has-warning .mandatory-msg i {
+      margin-right: 10px;
+      line-height: 24px;
+      vertical-align: bottom; }
+  .has-warning input, .has-warning .input, .has-warning .input-min {
+    border-color: #FF5722;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+
+.has-success {
+  position: relative; }
+  .has-success .form-control-feedback {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+    color: #4CAF50; }
+  .has-success .mandatory-msg {
+    color: #4CAF50;
+    position: absolute;
+    left: 0px;
+    line-height: 24px; }
+    .has-success .mandatory-msg .iconfont, .has-success .mandatory-msg .icon {
+      color: #4CAF50; }
+    .has-success .mandatory-msg i {
+      margin-right: 10px;
+      line-height: 24px;
+      vertical-align: bottom; }
+  .has-success input, .has-success .input, .has-success .input-min {
+    border-color: #4CAF50;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
+
+.tab-bor {
+  border-bottom: 1px solid #E9E9E9;
+  margin-left: -1px; }
+  .tab-bor li {
+    margin-bottom: -2px;
+    display: inline-block;
+    padding: 12px 44px; }
+    .tab-bor li a {
+      font-size: 1.38em;
+      color: #444; }
+  .tab-bor .active {
+    border-top: 3px solid #2196F3;
+    border-right: 1px solid #E9E9E9;
+    border-left: 1px solid #E9E9E9;
+    background-color: #fff;
+    font-weight: bold; }
+
+.step-title {
+  background: #E6F0F4;
+  line-height: 48px;
+  border-radius: 4px;
+  padding: 0 20px; }
+  .step-title strong {
+    background: #fff;
+    line-height: 28px;
+    height: 28px;
+    width: 28px;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 20px; }
+  .step-title h2 {
+    font-size: 16px;
+    font-weight: bold; }
+
+.no-data-desc {
+  text-align: center;
+  margin: 50px 0 100px; }
+
+.tab-bg {
+  border-radius: 4px;
+  overflow: hidden; }
+  .tab-bg li {
+    margin-left: -4px;
+    padding: 10px 0;
+    background: #f5f5f5; }
+    .tab-bg li a {
+      color: #2196f3;
+      padding: 0 20px;
+      border-left: 1px solid #c8c8c8;
+      outline: 0; }
+    .tab-bg li:last-child {
+      border-radius: 0px 4px 4px 0px; }
+  .tab-bg .active, .tab-bg li:hover {
+    background: #2196f3; }
+    .tab-bg .active a, .tab-bg li:hover a {
+      color: #fff; }
+    .tab-bg .active a, .tab-bg .active + li a, .tab-bg li:hover a, .tab-bg li:hover + li a {
+      border-left-color: transparent; }
+
+.line-dotted {
+  border-top: 1px dotted #bbb; }
+
+/*# sourceMappingURL=app.css.map*/

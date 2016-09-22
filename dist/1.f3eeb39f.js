@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 2:
+/***/ 11:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57,11 +57,11 @@ webpackJsonp([1],{
 	
 	        // document.cookie='user='+encodeURIComponent(JSON.stringify({"uid":"TmVTP54HnGY=","sid":"1hmipoAnlhg=","mid":"m002","name":"谌云峰","phone":"13166430721","mname":"海底捞","uidm":"E4DA3B7FBBCE2345D7772B0674A318D5"}))
 	    } else {
-	            // Vue.http.options.root = window.config.origin || 'http://zd.qa.kashuo.net/zdcrm-ws-1.0'
-	        }
+	        Vue.http.options.root = window.config.origin || 'http://zd.qa.kashuo.net/zdcrm-ws-1.0';
+	    }
 	}
 
 /***/ }
 
 });
-//# sourceMappingURL=1.6e4352b7.js.map
+//# sourceMappingURL=1.f3eeb39f.js.map
