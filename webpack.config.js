@@ -91,5 +91,5 @@ module.exports = {
             scss: path.join(__dirname, './dev/sass/app.scss')
         }
     },
-    devtool: 'source-map'
+    devtool: process.env.NODE_ENV != 'pro' && 'source-map'
 }
