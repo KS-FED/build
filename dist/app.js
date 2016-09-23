@@ -35,6 +35,7 @@ webpackJsonp([0],{
 	    value: true
 	});
 	exports.proxy_mock = proxy_mock;
+	console.log('environment: ' + ("dev"), 'version: ' + ("1.0.1"));
 	/**
 	 * [proxy_mock 代理、mock]
 	 * @param  {[type]} Vue [Vue]
@@ -50,7 +51,6 @@ webpackJsonp([0],{
 	        }.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));});
 	    }
 	}
-	console.log('environment: ' + ("dev"), 'version: ' + ("1.0.1"));
 
 /***/ }
 
