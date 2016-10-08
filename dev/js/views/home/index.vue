@@ -1,5 +1,5 @@
 <template>
     <div>
-        ddd
+        子路由
     </div>
 </template>

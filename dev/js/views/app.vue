@@ -1,6 +1,6 @@
 <template>
     <div>
-        lllll
+        主路由
         <router-view ></router-view>
     </div>
 </template>
