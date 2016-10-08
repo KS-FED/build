@@ -1,0 +1,15 @@
+{
+    "extends": "standard",
+    "globals":{
+        "APP_ENV":true,
+        "APP_VERSION":true,
+        "Vue":true,
+        "VueResource":true
+    },
+    "rules": {
+       "arrow-parens": [2, "as-needed"],
+       "camelcase":0,
+       "indent": ["error", 4]
+       
+    }
+}

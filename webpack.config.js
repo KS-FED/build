@@ -22,6 +22,10 @@ module.exports = {
         publicPath: './dist/'
     },
     module: {
+        preLoaders: [
+            // {test: /\.vue$/, loader: "eslint", exclude: /node_modules/},
+            // {test: /\.js$/, loader: "eslint", exclude: /node_modules/}
+        ],
         loaders: [{
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('css!sass-loader-once')
@@ -63,6 +67,10 @@ module.exports = {
     babel: {
         presets: ['es2015'],
         plugins: ['transform-runtime']
+    },
+    eslint: {
+        configFile: __dirname+'/.eslintrc',
+        formatter: require('eslint-friendly-formatter')
     },
     plugins: [
         new ExtractTextPlugin('app.css'),
