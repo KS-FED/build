@@ -7,6 +7,9 @@
     "dev": "npm run build & npm run proxy_mock --p",
     "pro": "NODE_ENV=pro webpack -p",
     "build": "NODE_ENV=dev webpack --watch",
+    "pro-windows": "set NODE_ENV=pro&&webpack -p",
+    "build-windows": "set NODE_ENV=dev&&webpack --watch",
+    "dev-windows": "npm run build-windows & npm run proxy_mock --p",
     "proxy_mock": "proxy-mock -p"
   },
   "repository": {
