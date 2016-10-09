@@ -28,7 +28,18 @@ export default function (Vue,router){
                         resolve(res)
                     })
                 }
-            }
+            },
+
+            // tab导航（背景）
+            '/tab-bor':{
+                name:'tab-bor',
+                title:'tab导航',
+                component: function(resolve){
+                    require(['./views/tab/tab-bor.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
 
         }
     }
