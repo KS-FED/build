@@ -35,5 +35,6 @@ router.start(app,'#app')
 
 // console.log(Vue.http.post)
 
+require('./lib/index')
 
 

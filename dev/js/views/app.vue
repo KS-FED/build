@@ -8,6 +8,11 @@
     export default {
         data (){
             return {}
+        },
+        ready (){
+            this.$nextTick(()=>{
+                hljs.initHighlightingOnLoad()
+            })
         }
     }
 </script>
