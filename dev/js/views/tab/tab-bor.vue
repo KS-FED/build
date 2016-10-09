@@ -8,11 +8,11 @@
 	<div>
         <pre>
         <code class="html">
-            <ul class="tab-bor">
-			    <li><a>会员规则</a></li>
-			    <li class="active"><a>功能主页</a></li>
-			    <li><a>会员管理</a></li>
-			</ul>
+                <ul class="tab-bor">
+                    <li><a>会员规则</a></li>
+                    <li class="active"><a>功能主页</a></li>
+                    <li><a>会员管理</a></li>
+                </ul>
         </code>
         </pre>
         <pre>
