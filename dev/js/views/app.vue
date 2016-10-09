@@ -10,9 +10,12 @@
             return {}
         },
         ready (){
-            this.$nextTick(()=>{
-                hljs.initHighlightingOnLoad()
-            })
+            document.querySelectorAll('pre code').forEach(val=>{
+                if(val.className === 'html'){
+                    val.innerHTML = val.innerHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                }
+                hljs.initHighlightingOnLoad(val)
+            })  
         }
     }
 </script>
