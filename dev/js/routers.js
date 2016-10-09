@@ -31,11 +31,44 @@ export default function (Vue,router){
             },
 
             // tab导航（背景）
-            '/tab-bor':{
-                name:'tab-bor',
+            '/tab-bg':{
+                name:'tab-bg',
                 title:'tab导航',
                 component: function(resolve){
-                    require(['./views/tab/tab-bor.vue'], (res)=> {
+                    require(['./views/tab/tab-bg.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // table（隔行添加背景色）
+            '/table-striped':{
+                name:'table-striped',
+                title:'table',
+                component: function(resolve){
+                    require(['./views/table/table-striped.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 分页
+            '/paging':{
+                name:'paging',
+                title:'paging',
+                component: function(resolve){
+                    require(['./views/paging/paging.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 提示框
+            '/toast':{
+                name:'toast',
+                title:'提示框',
+                component: function(resolve){
+                    require(['./views/toast/toast.vue'], (res)=> {
                         resolve(res)
                     })
                 }
