@@ -97,6 +97,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 日期
+            '/date':{
+                name:'date',
+                title:'日期',
+                component: function(resolve){
+                    require(['./views/date/date.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
         }
     }
 
