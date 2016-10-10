@@ -19,6 +19,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 按钮
+            '/button':{
+                name:'button',
+                title:'按钮',
+                component: function(resolve){
+                    require(['./views/button/button.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // tab导航（边框）
             '/tab-bor':{
                 name:'tab-bor',

@@ -25,7 +25,7 @@
     </div> -->
     <div style="padding:20px 100px;">
         <br>
-        <!-- <a class="h3" v-link="{name:'button'}">button（按钮）</a><br> -->
+        <a class="h3" v-link="{name:'button'}">button（按钮）</a><br>
         <!-- <a class="h3" v-link="{name:'layout'}">layout</a><br> -->
         <!-- <a class="h3" v-link="{name:'form'}">form</a><br> -->
         <!-- <a class="h3" v-link="{name:'components'}">components</a><br> -->
