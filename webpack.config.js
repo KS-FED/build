@@ -27,45 +27,31 @@ module.exports = {
             // {test: /\.vue$/, loader: "eslint", exclude: /node_modules/},
             // {test: /\.js$/, loader: "eslint", exclude: /node_modules/}
         ],
-        loaders: [{
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass-loader-once')
-            }, {
-                test: /\.(tpl|html)$/,
-                loader: 'html'
-            }, {
-                test: /\.vue$/,
-                loader: 'vue',
-            }, {
-                test: /\.js$/,
+        loaders: [
+            {   test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css!sass-loader-once')}, 
+            {   test: /\.(tpl|html)$/,
+                loader: 'html'}, 
+            {   test: /\.vue$/,
+                loader: 'vue',}, 
+            {   test: /\.js$/,
                 exclude: /(.\.min\.js)|node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
-                loader: 'babel'
-
-            },
+                loader: 'babel'},
 
             // {test: /\.(js|tag)$/, exclude: /node_modules/, loader: 'babel-loader'},
-            {
-                test: /\.(png|jpg)$/,
-                loader: 'url-loader?limit=8192'
-            }, {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader?mimetype=image/svg+xml'
-            }, {
-                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file-loader?mimetype=application/font-woff"
-            }, {
-                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file-loader?mimetype=application/font-woff"
-            }, 
-            // {
-            //     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: "file-loader?mimetype=application/octet-stream"
-            // },
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]"},
-            {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file-loader"
-            }
+            {   test: /\.(png|jpg)$/,
+                loader: 'url-loader?limit=8192'}, 
+            {   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
+            {   test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
+            {   test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'}, 
+            
+            {   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
+            {   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader'}
         ]
     },
     babel: {
