@@ -571,8 +571,8 @@ dialog::backdrop {
 */
 @font-face {
   font-family: "iconfont";
-  src: url(./dist/0b13741afbaebb606c2d30e50810e3c2.eot);
-  src: url(./dist/0b13741afbaebb606c2d30e50810e3c2.eot) format("embedded-opentype"), url(./dist/../iconfont.woff?808319f4) format("woff"), url(./dist/../iconfont.ttf?69635e5a) format("truetype"), url(./dist/../iconfont.svg?1e4109c2) format("svg"); }
+  src: url(./dist/../iconfont.eot?0b13741a);
+  src: url(./dist/../iconfont.eot?0b13741a) format("embedded-opentype"), url(./dist/../iconfont.woff?808319f4) format("woff"), url(./dist/../iconfont.ttf?69635e5a) format("truetype"), url(./dist/../iconfont.svg?1e4109c2) format("svg"); }
 
 .iconfont, .icon {
   font-family: "iconfont" !important;
