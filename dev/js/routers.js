@@ -119,6 +119,28 @@ export default function (Vue,router){
                 }
             },
 
+            // 单选
+            '/radio':{
+                name:'radio',
+                title:'单选',
+                component: function(resolve){
+                    require(['./views/radio/radio.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 步骤
+            // '/step':{
+            //     name:'step',
+            //     title:'步骤',
+            //     component: function(resolve){
+            //         require(['./views/step/step.vue'], (res)=> {
+            //             resolve(res)
+            //         })
+            //     }
+            // },
+
         }
     }
 

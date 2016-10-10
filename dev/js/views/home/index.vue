@@ -48,6 +48,7 @@
         <a class="h3" v-link="{name:'dialog-content'}">dialog-content(内容弹出框)</a><br>
         <a class="h3" v-link="{name:'dialog-icon'}">dialog-icon(图标弹出框)</a><br>
         <a class="h3" v-link="{name:'date'}">date(日期)</a><br>
+        <a class="h3" v-link="{name:'radio'}">radio(单选)</a><br>
         <!-- <a class="h3" v-link="{name:'step'}">step(步骤)</a><br> -->
     </div>
 </template>

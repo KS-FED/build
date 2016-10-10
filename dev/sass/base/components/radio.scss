@@ -1,4 +1,47 @@
 //单选框
-.radioinput{display:none}
+input[type=radio] {
+	position: absolute;
+	clip: rect(0,0,0,0); /* IE8+ */
+	*left: -999px;
+}
 
+.ui_radio {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid rgba(208, 208, 213, 1);  /* IE7-IE8 ignore this */
+	border-radius: 20px;
+	background-color: #fff;
+	box-sizing: border-box;
+	vertical-align: -.5ex;
+	*vertical-align: 0;
+	-webkit-transition: border-color .2s;
+    transition: border-color .2s;
+	overflow: hidden;
+}
 
+:not(:disabled) + .ui_radio:hover {
+	border-color: #ababaf;
+}
+
+.ui_radio::before {
+	content: '';
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: 4px auto 0;
+	border-radius: 10px;
+	background-color: #00a5e0;
+	visibility: hidden;
+}
+
+:checked + .ui_radio::before {
+	visibility: visible;
+	-webkit-animation: bounceIn .2s;
+	animation: bounceIn .2s;
+}
+
+:disabled + .ui_radio,.ui_radio.disabled {
+	border-color: #ababaf;
+	opacity: .38;
+}
