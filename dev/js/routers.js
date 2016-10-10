@@ -130,6 +130,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 多选
+            '/checkbox':{
+                name:'checkbox',
+                title:'多选',
+                component: function(resolve){
+                    require(['./views/checkbox/checkbox.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 步骤
             // '/step':{
             //     name:'step',
