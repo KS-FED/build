@@ -81,7 +81,18 @@ export default function (Vue,router){
 
 
     router.beforeEach(transition =>{
-        console.log(transition)
         transition.next()
+    })
+    router.afterEach(transition =>{
+        setTimeout(()=>{
+            // console.log(transition)
+            document.querySelectorAll('pre code').forEach(val=>{
+                if(val.className === 'html'){
+                    val.innerHTML = val.innerHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                }
+                hljs.highlightBlock(val)
+            })
+        })
+        
     })
 }

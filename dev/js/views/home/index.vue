@@ -58,14 +58,6 @@
             }
         },
         ready (){
-            document.querySelectorAll('pre code').forEach(val=>{
-                if(val.className === 'html'){
-                    console.log(val.innerHTML)
-                    val.innerHTML = val.innerHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')
-                }
-                hljs.initHighlightingOnLoad(val)
-            })
-            
         }
     }
 </script>
