@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + ({"0":"app"}[chunkId]||chunkId) + "." + {"0":"bcffe1ea","1":"8953d2fd","2":"59bb4b9b","3":"d728f613","4":"5317432b","5":"d1ec0294","6":"81c25999","7":"1bb63353","8":"ff31c99d"}[chunkId] + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + ({"0":"app"}[chunkId]||chunkId) + "." + {"0":"0a2532b4","1":"8953d2fd","2":"59bb4b9b","3":"d728f613","4":"5317432b","5":"d1ec0294","6":"81c25999","7":"1bb63353","8":"ff31c99d"}[chunkId] + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -88,7 +88,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/dist/";
+/******/ 	__webpack_require__.p = "./dist/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);

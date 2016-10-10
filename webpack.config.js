@@ -20,7 +20,7 @@ module.exports = {
         path: __dirname + '/dist',
         filename:'[name].js',
         chunkFilename: '[name].[chunkhash:8].js',
-        publicPath: '/dist/'
+        publicPath: './dist/'
     },
     module: {
         preLoaders: [
