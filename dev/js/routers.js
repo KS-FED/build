@@ -158,7 +158,8 @@ export default function (Vue,router){
     router.afterEach(transition =>{
         setTimeout(()=>{
             // console.log(transition)
-            document.querySelectorAll('pre code').forEach(val=>{
+            
+            Array.prototype.slice(document.querySelectorAll('pre code')).forEach(val=>{
                 if(val.className === 'html'){
                     val.innerHTML = val.innerHTML.replace(/</g,'&lt;').replace(/>/g,'&gt;')
                 }
