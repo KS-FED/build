@@ -20,7 +20,7 @@ module.exports = {
         path: __dirname + '/dist',
         filename:'[name].js',
         chunkFilename: '[name].[chunkhash:8].js',
-        publicPath: './dist/'
+        publicPath: '/dist/'
     },
     module: {
         preLoaders: [
@@ -97,7 +97,7 @@ module.exports = {
     resolve: {
         // extensions: ['', '.js', '.vue'],
         alias: {
-            scss: path.join(__dirname, './dev/sass/app.scss')
+            // scss: path.join(__dirname, './dev/sass/app.scss')
         }
     },
     devtool: process.env.NODE_ENV != 'pro' && 'source-map'

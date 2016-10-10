@@ -1,6 +1,7 @@
 
 /* eslint-disable no-unused-vars */
-import scss from 'scss'
+// import scss from 'scss'
+require('../sass/app.scss')
 /* eslint-enable no-unused-vars */
 import VueRouter from 'vue-router'
 import { proxy_mock } from './config/index'
