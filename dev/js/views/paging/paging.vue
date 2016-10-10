@@ -13,7 +13,7 @@
 				条
 			</div>
 			<ul class="col-auto">
-				<li class="frist"><</li>
+				<li class="frist">&lt;</li>
 				<li class="active">1</li>
 				<li>2</li>
 				<li>3</li>
@@ -21,7 +21,7 @@
 				<li>5</li>
 				<li>···</li>
 				<li>99</li>
-				<li>></li>
+				<li>&gt;</li>
 			</ul>
 		</div>
 

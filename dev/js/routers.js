@@ -3,6 +3,7 @@ export default function (Vue,router){
 
     '/':{
         router_type:'root',
+        name:'root',
         component: function(resolve){
             require(['./views/app.vue'],resolve)
         },
@@ -115,8 +116,12 @@ export default function (Vue,router){
 
 
     router.beforeEach(transition =>{
+        if(transition.to.name == 'root') {
+            router.go({ name: 'home'})
+        }
         transition.next()
     })
+    
     router.afterEach(transition =>{
         setTimeout(()=>{
             // console.log(transition)
