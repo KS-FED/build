@@ -74,6 +74,29 @@ export default function (Vue,router){
                 }
             },
 
+            // 弹框
+            // 内容弹框
+            '/dialog-content':{
+                name:'dialog-content',
+                title:'内容弹框',
+                component: function(resolve){
+                    require(['./views/dialog/dialog-content.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
+            // 图标弹框
+            '/dialog-icon':{
+                name:'dialog-icon',
+                title:'内容弹框',
+                component: function(resolve){
+                    require(['./views/dialog/dialog-icon.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
         }
     }
 

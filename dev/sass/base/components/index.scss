@@ -3,7 +3,9 @@
 @import "./switch";
 @import "./checkbox";
 @import "./radio";
-@import "./dialog";
+@import "./dialog"; // 弹框公共样式
+@import "./dialog-content"; // 内容弹框
+@import "./dialog-icon"; // 内容弹框
 @import "./input";
 @import "./table-striped";
 @import "./rules-introduce";
