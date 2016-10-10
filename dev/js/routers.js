@@ -141,6 +141,17 @@ export default function (Vue,router){
                 }
             },
 
+            // 开关
+            '/switch':{
+                name:'switch',
+                title:'开关',
+                component: function(resolve){
+                    require(['./views/switch/switch.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
+            },
+
             // 步骤
             // '/step':{
             //     name:'step',
