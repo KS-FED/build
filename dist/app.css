@@ -855,17 +855,17 @@ body {
   color: #444; }
 
 /* tb tb-cell table table-cell*/
-.tb, .row, .row-auto, .rules-introduce, .control-group-auto, .step-title, .paging-box, .form-ver .col.label, .form-ver .control-group .label.col-percent7, .control-group .form-ver .label.col-percent7, .form-ver .control-group-auto .label.col-percent7, .control-group-auto .form-ver .label.col-percent7, .form-ver .control-group .label.col-wauto, .control-group .form-ver .label.col-wauto, .form-ver .control-group-auto .label.col-wauto, .control-group-auto .form-ver .label.col-wauto, .form-ver .control-group .label.col-percent3, .control-group .form-ver .label.col-percent3, .form-ver .control-group-auto .label.col-percent3, .control-group-auto .form-ver .label.col-percent3, .control-group {
+.tb, .row, .row-auto, .paging-box, .date .picker-wrap .date-head, .date .picker-wrap .date-week, .date .picker-wrap .date-days, .date .picker-wrap .date-btn {
   display: table;
   table-layout: fixed;
   border-spacing: initial; }
 
-.tb-cell, .row .col, .row-auto .col, .rules-introduce .col, .control-group-auto .col, .step-title .col, .paging-box .col, .form-ver .col.label .col, .form-ver .control-group .label.col-percent7 .col, .control-group .form-ver .label.col-percent7 .col, .form-ver .control-group-auto .label.col-percent7 .col, .control-group-auto .form-ver .label.col-percent7 .col, .form-ver .control-group .label.col-wauto .col, .control-group .form-ver .label.col-wauto .col, .form-ver .control-group-auto .label.col-wauto .col, .control-group-auto .form-ver .label.col-wauto .col, .form-ver .control-group .label.col-percent3 .col, .control-group .form-ver .label.col-percent3 .col, .form-ver .control-group-auto .label.col-percent3 .col, .control-group-auto .form-ver .label.col-percent3 .col, .control-group .col, .row .control-group .col-percent7, .control-group .row .col-percent7, .row-auto .control-group .col-percent7, .control-group .row-auto .col-percent7, .rules-introduce .control-group .col-percent7, .control-group .rules-introduce .col-percent7, .control-group-auto .control-group .col-percent7, .control-group .control-group-auto .col-percent7, .step-title .control-group .col-percent7, .control-group .step-title .col-percent7, .paging-box .control-group .col-percent7, .control-group .paging-box .col-percent7, .form-ver .col.label .control-group .col-percent7, .control-group .form-ver .col.label .col-percent7, .form-ver .control-group .label.col-percent7 .col-percent7, .control-group .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group-auto .label.col-percent7 .control-group .col-percent7, .control-group .form-ver .control-group-auto .label.col-percent7 .col-percent7, .control-group-auto .form-ver .label.col-percent7 .control-group .col-percent7, .control-group .control-group-auto .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group .label.col-wauto .col-percent7, .control-group .form-ver .label.col-wauto .col-percent7, .form-ver .control-group-auto .label.col-wauto .control-group .col-percent7, .control-group .form-ver .control-group-auto .label.col-wauto .col-percent7, .control-group-auto .form-ver .label.col-wauto .control-group .col-percent7, .control-group .control-group-auto .form-ver .label.col-wauto .col-percent7, .form-ver .control-group .label.col-percent3 .col-percent7, .control-group .form-ver .label.col-percent3 .col-percent7, .form-ver .control-group-auto .label.col-percent3 .control-group .col-percent7, .control-group .form-ver .control-group-auto .label.col-percent3 .col-percent7, .control-group-auto .form-ver .label.col-percent3 .control-group .col-percent7, .control-group .control-group-auto .form-ver .label.col-percent3 .col-percent7, .control-group .col-percent7, .row .control-group-auto .col-percent7, .control-group-auto .row .col-percent7, .row-auto .control-group-auto .col-percent7, .control-group-auto .row-auto .col-percent7, .rules-introduce .control-group-auto .col-percent7, .control-group-auto .rules-introduce .col-percent7, .control-group-auto .col-percent7, .step-title .control-group-auto .col-percent7, .control-group-auto .step-title .col-percent7, .paging-box .control-group-auto .col-percent7, .control-group-auto .paging-box .col-percent7, .form-ver .col.label .control-group-auto .col-percent7, .control-group-auto .form-ver .col.label .col-percent7, .form-ver .control-group .label.col-percent7 .control-group-auto .col-percent7, .control-group-auto .form-ver .control-group .label.col-percent7 .col-percent7, .control-group .form-ver .label.col-percent7 .control-group-auto .col-percent7, .control-group-auto .control-group .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group-auto .label.col-percent7 .col-percent7, .control-group-auto .form-ver .label.col-percent7 .col-percent7, .form-ver .control-group .label.col-wauto .control-group-auto .col-percent7, .control-group-auto .form-ver .control-group .label.col-wauto .col-percent7, .control-group .form-ver .label.col-wauto .control-group-auto .col-percent7, .control-group-auto .control-group .form-ver .label.col-wauto .col-percent7, .form-ver .control-group-auto .label.col-wauto .col-percent7, .control-group-auto .form-ver .label.col-wauto .col-percent7, .form-ver .control-group .label.col-percent3 .control-group-auto .col-percent7, .control-group-auto .form-ver .control-group .label.col-percent3 .col-percent7, .control-group .form-ver .label.col-percent3 .control-group-auto .col-percent7, .control-group-auto .control-group .form-ver .label.col-percent3 .col-percent7, .form-ver .control-group-auto .label.col-percent3 .col-percent7, .control-group-auto .form-ver .label.col-percent3 .col-percent7, .row .control-group .col-wauto, .control-group .row .col-wauto, .row-auto .control-group .col-wauto, .control-group .row-auto .col-wauto, .rules-introduce .control-group .col-wauto, .control-group .rules-introduce .col-wauto, .control-group-auto .control-group .col-wauto, .control-group .control-group-auto .col-wauto, .step-title .control-group .col-wauto, .control-group .step-title .col-wauto, .paging-box .control-group .col-wauto, .control-group .paging-box .col-wauto, .form-ver .col.label .control-group .col-wauto, .control-group .form-ver .col.label .col-wauto, .form-ver .control-group .label.col-percent7 .col-wauto, .control-group .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group-auto .label.col-percent7 .control-group .col-wauto, .control-group .form-ver .control-group-auto .label.col-percent7 .col-wauto, .control-group-auto .form-ver .label.col-percent7 .control-group .col-wauto, .control-group .control-group-auto .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group .label.col-wauto .col-wauto, .control-group .form-ver .label.col-wauto .col-wauto, .form-ver .control-group-auto .label.col-wauto .control-group .col-wauto, .control-group .form-ver .control-group-auto .label.col-wauto .col-wauto, .control-group-auto .form-ver .label.col-wauto .control-group .col-wauto, .control-group .control-group-auto .form-ver .label.col-wauto .col-wauto, .form-ver .control-group .label.col-percent3 .col-wauto, .control-group .form-ver .label.col-percent3 .col-wauto, .form-ver .control-group-auto .label.col-percent3 .control-group .col-wauto, .control-group .form-ver .control-group-auto .label.col-percent3 .col-wauto, .control-group-auto .form-ver .label.col-percent3 .control-group .col-wauto, .control-group .control-group-auto .form-ver .label.col-percent3 .col-wauto, .control-group .col-wauto, .row .control-group-auto .col-wauto, .control-group-auto .row .col-wauto, .row-auto .control-group-auto .col-wauto, .control-group-auto .row-auto .col-wauto, .rules-introduce .control-group-auto .col-wauto, .control-group-auto .rules-introduce .col-wauto, .control-group-auto .col-wauto, .step-title .control-group-auto .col-wauto, .control-group-auto .step-title .col-wauto, .paging-box .control-group-auto .col-wauto, .control-group-auto .paging-box .col-wauto, .form-ver .col.label .control-group-auto .col-wauto, .control-group-auto .form-ver .col.label .col-wauto, .form-ver .control-group .label.col-percent7 .control-group-auto .col-wauto, .control-group-auto .form-ver .control-group .label.col-percent7 .col-wauto, .control-group .form-ver .label.col-percent7 .control-group-auto .col-wauto, .control-group-auto .control-group .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group-auto .label.col-percent7 .col-wauto, .control-group-auto .form-ver .label.col-percent7 .col-wauto, .form-ver .control-group .label.col-wauto .control-group-auto .col-wauto, .control-group-auto .form-ver .control-group .label.col-wauto .col-wauto, .control-group .form-ver .label.col-wauto .control-group-auto .col-wauto, .control-group-auto .control-group .form-ver .label.col-wauto .col-wauto, .form-ver .control-group-auto .label.col-wauto .col-wauto, .control-group-auto .form-ver .label.col-wauto .col-wauto, .form-ver .control-group .label.col-percent3 .control-group-auto .col-wauto, .control-group-auto .form-ver .control-group .label.col-percent3 .col-wauto, .control-group .form-ver .label.col-percent3 .control-group-auto .col-wauto, .control-group-auto .control-group .form-ver .label.col-percent3 .col-wauto, .form-ver .control-group-auto .label.col-percent3 .col-wauto, .control-group-auto .form-ver .label.col-percent3 .col-wauto, .row .control-group .col-percent3, .control-group .row .col-percent3, .row-auto .control-group .col-percent3, .control-group .row-auto .col-percent3, .rules-introduce .control-group .col-percent3, .control-group .rules-introduce .col-percent3, .control-group-auto .control-group .col-percent3, .control-group .control-group-auto .col-percent3, .step-title .control-group .col-percent3, .control-group .step-title .col-percent3, .paging-box .control-group .col-percent3, .control-group .paging-box .col-percent3, .form-ver .col.label .control-group .col-percent3, .control-group .form-ver .col.label .col-percent3, .form-ver .control-group .label.col-percent7 .col-percent3, .control-group .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group-auto .label.col-percent7 .control-group .col-percent3, .control-group .form-ver .control-group-auto .label.col-percent7 .col-percent3, .control-group-auto .form-ver .label.col-percent7 .control-group .col-percent3, .control-group .control-group-auto .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group .label.col-wauto .col-percent3, .control-group .form-ver .label.col-wauto .col-percent3, .form-ver .control-group-auto .label.col-wauto .control-group .col-percent3, .control-group .form-ver .control-group-auto .label.col-wauto .col-percent3, .control-group-auto .form-ver .label.col-wauto .control-group .col-percent3, .control-group .control-group-auto .form-ver .label.col-wauto .col-percent3, .form-ver .control-group .label.col-percent3 .col-percent3, .control-group .form-ver .label.col-percent3 .col-percent3, .form-ver .control-group-auto .label.col-percent3 .control-group .col-percent3, .control-group .form-ver .control-group-auto .label.col-percent3 .col-percent3, .control-group-auto .form-ver .label.col-percent3 .control-group .col-percent3, .control-group .control-group-auto .form-ver .label.col-percent3 .col-percent3, .control-group .col-percent3, .row .control-group-auto .col-percent3, .control-group-auto .row .col-percent3, .row-auto .control-group-auto .col-percent3, .control-group-auto .row-auto .col-percent3, .rules-introduce .control-group-auto .col-percent3, .control-group-auto .rules-introduce .col-percent3, .control-group-auto .col-percent3, .step-title .control-group-auto .col-percent3, .control-group-auto .step-title .col-percent3, .paging-box .control-group-auto .col-percent3, .control-group-auto .paging-box .col-percent3, .form-ver .col.label .control-group-auto .col-percent3, .control-group-auto .form-ver .col.label .col-percent3, .form-ver .control-group .label.col-percent7 .control-group-auto .col-percent3, .control-group-auto .form-ver .control-group .label.col-percent7 .col-percent3, .control-group .form-ver .label.col-percent7 .control-group-auto .col-percent3, .control-group-auto .control-group .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group-auto .label.col-percent7 .col-percent3, .control-group-auto .form-ver .label.col-percent7 .col-percent3, .form-ver .control-group .label.col-wauto .control-group-auto .col-percent3, .control-group-auto .form-ver .control-group .label.col-wauto .col-percent3, .control-group .form-ver .label.col-wauto .control-group-auto .col-percent3, .control-group-auto .control-group .form-ver .label.col-wauto .col-percent3, .form-ver .control-group-auto .label.col-wauto .col-percent3, .control-group-auto .form-ver .label.col-wauto .col-percent3, .form-ver .control-group .label.col-percent3 .control-group-auto .col-percent3, .control-group-auto .form-ver .control-group .label.col-percent3 .col-percent3, .control-group .form-ver .label.col-percent3 .control-group-auto .col-percent3, .control-group-auto .control-group .form-ver .label.col-percent3 .col-percent3, .form-ver .control-group-auto .label.col-percent3 .col-percent3, .control-group-auto .form-ver .label.col-percent3 .col-percent3, .row .col-top, .row-auto .col-top, .rules-introduce .col-top, .control-group-auto .col-top, .step-title .col-top, .paging-box .col-top, .form-ver .col.label .col-top, .form-ver .control-group .label.col-percent7 .col-top, .control-group .form-ver .label.col-percent7 .col-top, .form-ver .control-group-auto .label.col-percent7 .col-top, .control-group-auto .form-ver .label.col-percent7 .col-top, .form-ver .control-group .label.col-wauto .col-top, .control-group .form-ver .label.col-wauto .col-top, .form-ver .control-group-auto .label.col-wauto .col-top, .control-group-auto .form-ver .label.col-wauto .col-top, .form-ver .control-group .label.col-percent3 .col-top, .control-group .form-ver .label.col-percent3 .col-top, .form-ver .control-group-auto .label.col-percent3 .col-top, .control-group-auto .form-ver .label.col-percent3 .col-top, .control-group .col-top, .row-auto .col-auto, .rules-introduce .col-auto, .control-group-auto .col-auto, .step-title .col-auto, .paging-box .col-auto, .row-auto .col-auto-top, .rules-introduce .col-auto-top, .control-group-auto .col-auto-top, .step-title .col-auto-top, .paging-box .col-auto-top, .paging-box .statistical {
+.tb-cell, .row .col, .row-auto .col, .paging-box .col, .date .picker-wrap .date-head .col, .date .picker-wrap .date-week .col, .date .picker-wrap .date-days .col, .date .picker-wrap .date-btn .col, .date .picker-wrap .date-head .retreat, .date .picker-wrap .date-head .next, .date .picker-wrap .date-head .interstice, .date .picker-wrap .date-week span, .date .picker-wrap .date-days span, .date .picker-wrap .date-btn span, .row .col-top, .row-auto .col-top, .paging-box .col-top, .date .picker-wrap .date-head .col-top, .date .picker-wrap .date-week .col-top, .date .picker-wrap .date-days .col-top, .date .picker-wrap .date-btn .col-top, .row-auto .col-auto, .paging-box .col-auto, .date .picker-wrap .date-head .col-auto, .row-auto .col-auto-top, .paging-box .col-auto-top, .date .picker-wrap .date-head .col-auto-top, .paging-box .statistical, .date .picker-wrap .date-head .paging-box .statistical, .paging-box .date .picker-wrap .date-head .statistical, .date .picker-wrap .date-head .year, .date .picker-wrap .date-head .month {
   display: table-cell;
   vertical-align: middle;
   word-break: break-all; }
 
-.tb, .row, .row-auto, .rules-introduce, .control-group-auto, .step-title, .paging-box, .form-ver .col.label, .form-ver .control-group .label.col-percent7, .control-group .form-ver .label.col-percent7, .form-ver .control-group-auto .label.col-percent7, .control-group-auto .form-ver .label.col-percent7, .form-ver .control-group .label.col-wauto, .control-group .form-ver .label.col-wauto, .form-ver .control-group-auto .label.col-wauto, .control-group-auto .form-ver .label.col-wauto, .form-ver .control-group .label.col-percent3, .control-group .form-ver .label.col-percent3, .form-ver .control-group-auto .label.col-percent3, .control-group-auto .form-ver .label.col-percent3, .control-group {
+.tb, .row, .row-auto, .paging-box, .date .picker-wrap .date-head, .date .picker-wrap .date-week, .date .picker-wrap .date-days, .date .picker-wrap .date-btn {
   box-sizing: border-box;
   width: 100%; }
 
@@ -895,15 +895,15 @@ body {
   box-sizing: border-box; }
 
 /*pure-u*/
-.row .col-top, .row-auto .col-top, .rules-introduce .col-top, .control-group-auto .col-top, .step-title .col-top, .paging-box .col-top, .form-ver .col.label .col-top, .form-ver .control-group .label.col-percent7 .col-top, .control-group .form-ver .label.col-percent7 .col-top, .form-ver .control-group-auto .label.col-percent7 .col-top, .control-group-auto .form-ver .label.col-percent7 .col-top, .form-ver .control-group .label.col-wauto .col-top, .control-group .form-ver .label.col-wauto .col-top, .form-ver .control-group-auto .label.col-wauto .col-top, .control-group-auto .form-ver .label.col-wauto .col-top, .form-ver .control-group .label.col-percent3 .col-top, .control-group .form-ver .label.col-percent3 .col-top, .form-ver .control-group-auto .label.col-percent3 .col-top, .control-group-auto .form-ver .label.col-percent3 .col-top, .control-group .col-top {
+.row .col-top, .row-auto .col-top, .paging-box .col-top, .date .picker-wrap .date-head .col-top, .date .picker-wrap .date-week .col-top, .date .picker-wrap .date-days .col-top, .date .picker-wrap .date-btn .col-top {
   vertical-align: top; }
 
-.row-auto, .rules-introduce, .control-group-auto, .step-title, .paging-box {
+.row-auto, .paging-box, .date .picker-wrap .date-head {
   table-layout: auto; }
-  .row-auto .col-auto, .rules-introduce .col-auto, .control-group-auto .col-auto, .step-title .col-auto, .paging-box .col-auto, .row-auto .col-auto-top, .rules-introduce .col-auto-top, .control-group-auto .col-auto-top, .step-title .col-auto-top, .paging-box .col-auto-top, .paging-box .statistical {
+  .row-auto .col-auto, .paging-box .col-auto, .date .picker-wrap .date-head .col-auto, .row-auto .col-auto-top, .paging-box .col-auto-top, .date .picker-wrap .date-head .col-auto-top, .paging-box .statistical, .date .picker-wrap .date-head .paging-box .statistical, .paging-box .date .picker-wrap .date-head .statistical, .date .picker-wrap .date-head .year, .date .picker-wrap .date-head .month {
     width: 1px;
     white-space: nowrap; }
-  .row-auto .col-auto-top, .rules-introduce .col-auto-top, .control-group-auto .col-auto-top, .step-title .col-auto-top, .paging-box .col-auto-top {
+  .row-auto .col-auto-top, .paging-box .col-auto-top, .date .picker-wrap .date-head .col-auto-top {
     vertical-align: top; }
 
 /* h1 ~ h6 字体大小 */
@@ -1094,17 +1094,6 @@ body {
   background: #E9E9E9;
   color: #fff; }
 
-.desc, .msg-desc {
-  font-size: 13px; }
-
-.icon-msg {
-  color: #999999; }
-  .icon-msg .icon {
-    padding-right: 6px; }
-
-.msg-desc {
-  color: #999999; }
-
 .btn, .btn-primary-light, .btn-primary-deep, .btn-primary, .btn-success-light, .btn-success-deep, .btn-success, .btn-info-light, .btn-info-deep, .btn-info, .btn-danger-light, .btn-danger-deep, .btn-danger, .btn-warning-light, .btn-warning-deep, .btn-warning, .btn-dark-light, .btn-dark-deep, .btn-dark, .btn-gray-light, .btn-gray-deep, .btn-gray, .btn-plain-primary-light, .btn-plain-primary-deep, .btn-plain-primary, .btn-plain-success-light, .btn-plain-success-deep, .btn-plain-success, .btn-plain-info-light, .btn-plain-info-deep, .btn-plain-info, .btn-plain-danger-light, .btn-plain-danger-deep, .btn-plain-danger, .btn-plain-warning-light, .btn-plain-warning-deep, .btn-plain-warning, .btn-plain-dark-light, .btn-plain-dark-deep, .btn-plain-dark, .btn-plain-gray-light, .btn-plain-gray-deep, .btn-plain-gray, .btn-primary-xl, .btn-success-xl, .btn-info-xl, .btn-danger-xl, .btn-warning-xl, .btn-dark-xl, .btn-gray-xl, .btn-plain-primary-xl, .btn-plain-success-xl, .btn-plain-info-xl, .btn-plain-danger-xl, .btn-plain-warning-xl, .btn-plain-dark-xl, .btn-plain-gray-xl, .btn-primary-xxl, .btn-success-xxl, .btn-info-xxl, .btn-danger-xxl, .btn-warning-xxl, .btn-dark-xxl, .btn-gray-xxl, .btn-plain-primary-xxl, .btn-plain-success-xxl, .btn-plain-info-xxl, .btn-plain-danger-xxl, .btn-plain-warning-xxl, .btn-plain-dark-xxl, .btn-plain-gray-xxl {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1226,444 +1215,110 @@ body {
 .btn-plain-gray-xxl:active {
   background: #f5f5f5; }
 
-.switchbtn .switchbtnchoose {
-  display: none; }
-  .switchbtn .switchbtnchoose + label {
-    position: relative;
-    width: 48px;
-    height: 24px;
-    border-radius: 15px;
-    transition: all .5 ease-in;
-    cursor: point;
-    display: block; }
-    .switchbtn .switchbtnchoose + label:before {
+.dialog, .dialog-bg-default, .dialog-bg, .dialog-bg-danger, .dialog-bg-primary, .dialog-bg-success, .dialog-bg-warning, .dialog-icon, .dialog-icon-danger, .dialog-icon-info, .dialog-icon-success, .dialog-icon-warning {
+  box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2); }
+  .dialog .content, .dialog-bg-default .content, .dialog-bg .content, .dialog-bg-danger .content, .dialog-bg-primary .content, .dialog-bg-success .content, .dialog-bg-warning .content, .dialog-icon .content, .dialog-icon-danger .content, .dialog-icon-info .content, .dialog-icon-success .content, .dialog-icon-warning .content, .dialog .operation, .dialog-bg-default .operation, .dialog-bg .operation, .dialog-bg-danger .operation, .dialog-bg-primary .operation, .dialog-bg-success .operation, .dialog-bg-warning .operation, .dialog-icon .operation, .dialog-icon-danger .operation, .dialog-icon-info .operation, .dialog-icon-success .operation, .dialog-icon-warning .operation {
+    padding: 20px; }
+  .dialog .operation .btn-plain-dark, .dialog-bg-default .operation .btn-plain-dark, .dialog-bg .operation .btn-plain-dark, .dialog-bg-danger .operation .btn-plain-dark, .dialog-bg-primary .operation .btn-plain-dark, .dialog-bg-success .operation .btn-plain-dark, .dialog-bg-warning .operation .btn-plain-dark, .dialog-icon .operation .btn-plain-dark, .dialog-icon-danger .operation .btn-plain-dark, .dialog-icon-info .operation .btn-plain-dark, .dialog-icon-success .operation .btn-plain-dark, .dialog-icon-warning .operation .btn-plain-dark {
+    margin-right: 10px; }
+
+.dialog-txt, .dialog-bg-default, .dialog-bg, .dialog-bg-danger, .dialog-bg-primary, .dialog-bg-success, .dialog-bg-warning {
+  width: 500px; }
+  .dialog-txt .title, .dialog-bg-default .title, .dialog-bg .title, .dialog-bg-danger .title, .dialog-bg-primary .title, .dialog-bg-success .title, .dialog-bg-warning .title {
+    padding: 20px 20px 0;
+    position: relative; }
+    .dialog-txt .title h2, .dialog-bg-default .title h2, .dialog-bg .title h2, .dialog-bg-danger .title h2, .dialog-bg-primary .title h2, .dialog-bg-success .title h2, .dialog-bg-warning .title h2 {
+      padding-bottom: 20px; }
+    .dialog-txt .title .close, .dialog-bg-default .title .close, .dialog-bg .title .close, .dialog-bg-danger .title .close, .dialog-bg-primary .title .close, .dialog-bg-success .title .close, .dialog-bg-warning .title .close {
+      cursor: pointer;
       position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 22px;
-      height: 22px;
-      background: #fff;
-      z-index: 2;
-      transition: all .5 ease-in;
-      border-radius: 50%;
-      content: ""; }
-    .switchbtn .switchbtnchoose + label span.end {
-      opacity: 0;
-      z-index: 1;
-      color: #fff; }
-    .switchbtn .switchbtnchoose + label span.begin {
-      opacity: 1;
-      position: absolute;
-      top: 0px;
-      left: 25px;
-      z-index: 1;
-      color: #43A047; }
-    .switchbtn .switchbtnchoose + label span.hlh {
-      height: 24px;
-      line-height: 24px; }
-    .switchbtn .switchbtnchoose + label:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #E9E9E9;
-      transition: all .5 ease-in;
-      content: "";
-      border-radius: 15px; }
-  .switchbtn .switchbtnchoose:checked + label:before {
-    position: absolute;
-    top: 1px;
-    left: 24px;
-    z-index: 2;
-    content: "";
-    background: #fff; }
-  .switchbtn .switchbtnchoose:checked + label span.end {
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 5px; }
-  .switchbtn .switchbtnchoose:checked + label span.begin {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 25px; }
-  .switchbtn .switchbtnchoose:checked + label span.hlh {
-    height: 24px;
-    line-height: 24px; }
-  .switchbtn .switchbtnchoose:checked + label:after {
-    position: absolute;
-    top: 0px;
-    background: #43A047; }
+      right: 20px;
+      top: 35px;
+      display: inline-block;
+      width: 20px;
+      line-height: 20px;
+      text-align: center; }
+      .dialog-txt .title .close i, .dialog-bg-default .title .close i, .dialog-bg .title .close i, .dialog-bg-danger .title .close i, .dialog-bg-primary .title .close i, .dialog-bg-success .title .close i, .dialog-bg-warning .title .close i {
+        font-size: 12px; }
+  .dialog-txt .operation, .dialog-bg-default .operation, .dialog-bg .operation, .dialog-bg-danger .operation, .dialog-bg-primary .operation, .dialog-bg-success .operation, .dialog-bg-warning .operation {
+    text-align: right; }
 
-.switchbtn-xs .switchbtnchoose {
-  display: none; }
-  .switchbtn-xs .switchbtnchoose + label {
-    position: relative;
-    width: 32px;
-    height: 16px;
-    border-radius: 15px;
-    transition: all .5 ease-in;
-    cursor: point;
-    display: block; }
-    .switchbtn-xs .switchbtnchoose + label:before {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 14px;
-      height: 14px;
-      background: #fff;
-      z-index: 2;
-      transition: all .5 ease-in;
-      border-radius: 50%;
-      content: ""; }
-    .switchbtn-xs .switchbtnchoose + label span.end {
-      opacity: 0;
-      z-index: 1;
-      color: #fff; }
-    .switchbtn-xs .switchbtnchoose + label span.begin {
-      opacity: 1;
-      position: absolute;
-      top: 0px;
-      left: 17px;
-      z-index: 1;
-      color: #43A047; }
-    .switchbtn-xs .switchbtnchoose + label span.hlh {
-      height: 16px;
-      line-height: 16px; }
-    .switchbtn-xs .switchbtnchoose + label:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #E9E9E9;
-      transition: all .5 ease-in;
-      content: "";
-      border-radius: 15px; }
-  .switchbtn-xs .switchbtnchoose:checked + label:before {
-    position: absolute;
-    top: 1px;
-    left: 16px;
-    z-index: 2;
-    content: "";
-    background: #fff; }
-  .switchbtn-xs .switchbtnchoose:checked + label span.end {
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 5px; }
-  .switchbtn-xs .switchbtnchoose:checked + label span.begin {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 17px; }
-  .switchbtn-xs .switchbtnchoose:checked + label span.hlh {
-    height: 16px;
-    line-height: 16px; }
-  .switchbtn-xs .switchbtnchoose:checked + label:after {
-    position: absolute;
-    top: 0px;
-    background: #43A047; }
+.dialog-bg-default h2 {
+  border-bottom: 1px solid #e0e0e0; }
 
-.switchbtn-sm .switchbtnchoose {
-  display: none; }
-  .switchbtn-sm .switchbtnchoose + label {
-    position: relative;
-    width: 40px;
-    height: 20px;
-    border-radius: 15px;
-    transition: all .5 ease-in;
-    cursor: point;
-    display: block; }
-    .switchbtn-sm .switchbtnchoose + label:before {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 18px;
-      height: 18px;
-      background: #fff;
-      z-index: 2;
-      transition: all .5 ease-in;
-      border-radius: 50%;
-      content: ""; }
-    .switchbtn-sm .switchbtnchoose + label span.end {
-      opacity: 0;
-      z-index: 1;
-      color: #fff; }
-    .switchbtn-sm .switchbtnchoose + label span.begin {
-      opacity: 1;
-      position: absolute;
-      top: 0px;
-      left: 21px;
-      z-index: 1;
-      color: #43A047; }
-    .switchbtn-sm .switchbtnchoose + label span.hlh {
-      height: 20px;
-      line-height: 20px; }
-    .switchbtn-sm .switchbtnchoose + label:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #E9E9E9;
-      transition: all .5 ease-in;
-      content: "";
-      border-radius: 15px; }
-  .switchbtn-sm .switchbtnchoose:checked + label:before {
-    position: absolute;
-    top: 1px;
-    left: 20px;
-    z-index: 2;
-    content: "";
-    background: #fff; }
-  .switchbtn-sm .switchbtnchoose:checked + label span.end {
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 5px; }
-  .switchbtn-sm .switchbtnchoose:checked + label span.begin {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 21px; }
-  .switchbtn-sm .switchbtnchoose:checked + label span.hlh {
-    height: 20px;
-    line-height: 20px; }
-  .switchbtn-sm .switchbtnchoose:checked + label:after {
-    position: absolute;
-    top: 0px;
-    background: #43A047; }
+.dialog-bg-default .close:hover {
+  background: #f44336;
+  border-radius: 10px; }
+  .dialog-bg-default .close:hover i {
+    color: #fff; }
 
-.switchbtn-lg .switchbtnchoose {
-  display: none; }
-  .switchbtn-lg .switchbtnchoose + label {
-    position: relative;
-    width: 56px;
-    height: 28px;
-    border-radius: 15px;
-    transition: all .5 ease-in;
-    cursor: point;
-    display: block; }
-    .switchbtn-lg .switchbtnchoose + label:before {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 26px;
-      height: 26px;
-      background: #fff;
-      z-index: 2;
-      transition: all .5 ease-in;
-      border-radius: 50%;
-      content: ""; }
-    .switchbtn-lg .switchbtnchoose + label span.end {
-      opacity: 0;
-      z-index: 1;
-      color: #fff; }
-    .switchbtn-lg .switchbtnchoose + label span.begin {
-      opacity: 1;
-      position: absolute;
-      top: 0px;
-      left: 29px;
-      z-index: 1;
-      color: #43A047; }
-    .switchbtn-lg .switchbtnchoose + label span.hlh {
-      height: 28px;
-      line-height: 28px; }
-    .switchbtn-lg .switchbtnchoose + label:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #E9E9E9;
-      transition: all .5 ease-in;
-      content: "";
-      border-radius: 15px; }
-  .switchbtn-lg .switchbtnchoose:checked + label:before {
-    position: absolute;
-    top: 1px;
-    left: 28px;
-    z-index: 2;
-    content: "";
-    background: #fff; }
-  .switchbtn-lg .switchbtnchoose:checked + label span.end {
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 5px; }
-  .switchbtn-lg .switchbtnchoose:checked + label span.begin {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 29px; }
-  .switchbtn-lg .switchbtnchoose:checked + label span.hlh {
-    height: 28px;
-    line-height: 28px; }
-  .switchbtn-lg .switchbtnchoose:checked + label:after {
-    position: absolute;
-    top: 0px;
-    background: #43A047; }
+.dialog-bg-default .close:active {
+  background: #e53935; }
 
-.switchbtn-words .switchbtnchoose {
-  display: none; }
-  .switchbtn-words .switchbtnchoose + label {
-    position: relative;
-    width: 72px;
-    height: 24px;
-    border-radius: 15px;
-    transition: all .5 ease-in;
-    cursor: point;
-    display: block; }
-    .switchbtn-words .switchbtnchoose + label:before {
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 22px;
-      height: 22px;
-      background: #fff;
-      z-index: 2;
-      transition: all .5 ease-in;
-      border-radius: 50%;
-      content: ""; }
-    .switchbtn-words .switchbtnchoose + label span.end {
-      opacity: 0;
-      z-index: 1;
-      color: #fff; }
-    .switchbtn-words .switchbtnchoose + label span.begin {
-      opacity: 1;
-      position: absolute;
-      top: 0px;
-      left: 25px;
-      z-index: 1;
-      color: #43A047; }
-    .switchbtn-words .switchbtnchoose + label span.hlh {
-      height: 24px;
-      line-height: 24px; }
-    .switchbtn-words .switchbtnchoose + label:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #E9E9E9;
-      transition: all .5 ease-in;
-      content: "";
-      border-radius: 15px; }
-  .switchbtn-words .switchbtnchoose:checked + label:before {
-    position: absolute;
-    top: 1px;
-    left: 48px;
-    z-index: 2;
-    content: "";
-    background: #fff; }
-  .switchbtn-words .switchbtnchoose:checked + label span.end {
-    opacity: 1;
-    position: absolute;
-    top: 0px;
-    left: 5px; }
-  .switchbtn-words .switchbtnchoose:checked + label span.begin {
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    left: 25px; }
-  .switchbtn-words .switchbtnchoose:checked + label span.hlh {
-    height: 24px;
-    line-height: 24px; }
-  .switchbtn-words .switchbtnchoose:checked + label:after {
-    position: absolute;
-    top: 0px;
-    background: #43A047; }
+.dialog-bg .title, .dialog-bg-danger .title, .dialog-bg-primary .title, .dialog-bg-success .title, .dialog-bg-warning .title {
+  background: #f44336; }
+  .dialog-bg .title h2, .dialog-bg-danger .title h2, .dialog-bg-primary .title h2, .dialog-bg-success .title h2, .dialog-bg-warning .title h2, .dialog-bg .title i, .dialog-bg-danger .title i, .dialog-bg-primary .title i, .dialog-bg-success .title i, .dialog-bg-warning .title i {
+    color: #fff; }
 
-.switchbtn.dib {
-  display: inline-block; }
+/* 红色 */
+.dialog-bg-danger .title {
+  background: #f44336; }
 
-.switchbtn-vam {
-  vertical-align: middle; }
+/* 蓝色 */
+.dialog-bg-primary .title {
+  background: #2196f3; }
 
-.checkboxinput {
-  display: none; }
+/* 绿色 */
+.dialog-bg-success .title {
+  background: #4caf50; }
 
-.nocheck {
-  color: #e8e8e8; }
+/* 橙色 */
+.dialog-bg-warning .title {
+  background: #ff5722; }
 
-.check {
-  color: #2196F3; }
-
-.disabledcheck {
-  color: #e9e9e9; }
-
-.disabledcheck + span {
-  color: #777777; }
-
-.radioinput {
-  display: none; }
-
-.dialog-mask {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  background: #222;
-  opacity: 0.3; }
-
-.dialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 13;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  border-radius: 3px;
-  overflow: hidden;
-  min-width: 400px;
-  width: 40%;
-  background-color: #fff;
-  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.1);
-  z-index: 9999;
-  max-height: 90%;
-  overflow-y: auto; }
-
-.dialog-hd {
-  position: relative; }
-
-.dialog-hd a {
-  float: right;
-  position: absolute;
-  top: 20px;
-  right: 0; }
-
-.dialog-hd h2 {
-  padding: 20px 0; }
-
-.dialog-primary-title {
-  margin: 0 20px; }
-  .dialog-primary-title h2 {
-    font-size: 24px;
-    line-height: 24px;
-    border-bottom: 1px solid #e5e5e5; }
-  .dialog-primary-title a {
-    border-radius: 50%;
-    line-height: 1em;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
+/* 图标弹框 */
+.dialog-icon, .dialog-icon-danger, .dialog-icon-info, .dialog-icon-success, .dialog-icon-warning {
+  width: 420px;
+  padding-top: 20px; }
+  .dialog-icon .title h2, .dialog-icon-danger .title h2, .dialog-icon-info .title h2, .dialog-icon-success .title h2, .dialog-icon-warning .title h2 {
+    font-size: 18px; }
+  .dialog-icon .title, .dialog-icon-danger .title, .dialog-icon-info .title, .dialog-icon-success .title, .dialog-icon-warning .title, .dialog-icon .content, .dialog-icon-danger .content, .dialog-icon-info .content, .dialog-icon-success .content, .dialog-icon-warning .content, .dialog-icon .operation, .dialog-icon-danger .operation, .dialog-icon-info .operation, .dialog-icon-success .operation, .dialog-icon-warning .operation {
+    text-align: center; }
+  .dialog-icon .icon-bor, .dialog-icon-danger .icon-bor, .dialog-icon-info .icon-bor, .dialog-icon-success .icon-bor, .dialog-icon-warning .icon-bor {
+    padding: 20px;
+    border: 5px solid;
+    width: 80px;
+    line-height: 80px;
     text-align: center;
-    color: #777; }
-  .dialog-primary-title a:hover {
-    background-color: #EF5350;
-    color: #fff; }
-  .dialog-primary-title a:active {
-    background-color: #E53935;
-    color: #fff; }
-  .dialog-primary-title i {
-    font-size: 10px; }
+    border-radius: 50%;
+    margin: 20px auto;
+    height: 80px; }
+    .dialog-icon .icon-bor i, .dialog-icon-danger .icon-bor i, .dialog-icon-info .icon-bor i, .dialog-icon-success .icon-bor i, .dialog-icon-warning .icon-bor i {
+      font-size: 50px; }
 
-.dialog-bd {
-  padding: 20px; }
+/* icon红色 */
+.dialog-icon-danger .icon-bor {
+  border-color: #f44336; }
+  .dialog-icon-danger .icon-bor i {
+    color: #f44336; }
+
+/* icon青色 */
+.dialog-icon-info .icon-bor {
+  border-color: #00BCD4; }
+  .dialog-icon-info .icon-bor i {
+    color: #00BCD4; }
+
+/* icon绿色 */
+.dialog-icon-success .icon-bor {
+  border-color: #dbefdc; }
+  .dialog-icon-success .icon-bor i {
+    color: #4caf50; }
+
+/* icon橙色 */
+.dialog-icon-warning .icon-bor {
+  border-color: #ff5722; }
+  .dialog-icon-warning .icon-bor i {
+    color: #ff5722; }
 
 .input-xl, .input-l, .input, .input-min, .input-s, .input-xs {
   font-family: PingFang SC,Arial,"\82F9\65B9","\5FAE\8F6F\96C5\9ED1";
@@ -1739,157 +1394,6 @@ body {
   .table-striped tbody tr:nth-of-type(odd) {
     background-color: #fcfcfc; }
 
-.rules-introduce {
-  border-spacing: 20px;
-  background-color: #f3f3f3;
-  border-radius: 3px;
-  border: 1px solid #e0e0e0;
-  /*padding: 20px;*/
-  /*.rules-info {
-        @extend .col;
-        padding-right: 10px;        
-    }*/ }
-
-.form-ver .col.label, .form-ver .control-group .label.col-percent7, .control-group .form-ver .label.col-percent7, .form-ver .control-group-auto .label.col-percent7, .control-group-auto .form-ver .label.col-percent7, .form-ver .control-group .label.col-wauto, .control-group .form-ver .label.col-wauto, .form-ver .control-group-auto .label.col-wauto, .control-group-auto .form-ver .label.col-wauto, .form-ver .control-group .label.col-percent3, .control-group .form-ver .label.col-percent3, .form-ver .control-group-auto .label.col-percent3, .control-group-auto .form-ver .label.col-percent3 {
-  text-align: left; }
-
-.form-ver .deposit-right-auto {
-  max-width: 640px;
-  min-width: 440px; }
-
-.control-group-warpper .control-group, .control-group-warpper .control-group-auto {
-  margin-bottom: 30px; }
-
-.control-group .col-percent7, .control-group-auto .col-percent7 {
-  width: 70%;
-  position: relative; }
-
-.control-group .col-wauto, .control-group-auto .col-wauto {
-  width: auto;
-  position: relative; }
-
-.control-group .col-percent3, .control-group-auto .col-percent3 {
-  width: 30%; }
-
-.control-group .vertical-align, .control-group-auto .vertical-align {
-  vertical-align: middle; }
-
-.control-group .label, .control-group-auto .label {
-  font-weight: bold;
-  text-align: right;
-  line-height: 34px; }
-
-.control-group .desc-msg, .control-group-auto .desc-msg {
-  position: absolute; }
-
-.control-group .control-top, .control-group-auto .control-top {
-  line-height: 34px;
-  vertical-align: top; }
-
-.form-box-center {
-  min-width: 430px;
-  max-width: 680px;
-  margin: auto; }
-
-.sup-red {
-  color: red; }
-
-@media screen and (max-width: 1300px) {
-  /*当屏幕尺寸小于600px时，应用下面的CSS样式*/
-  .form-ver .deposit-right-auto {
-    max-width: 550px;
-    min-width: 440px; } }
-
-.has-error {
-  position: relative; }
-  .has-error .form-control-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    display: block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    pointer-events: none;
-    color: #F44336; }
-  .has-error .mandatory-msg {
-    color: #F44336;
-    position: absolute;
-    left: 0px;
-    line-height: 24px; }
-    .has-error .mandatory-msg .iconfont, .has-error .mandatory-msg .icon {
-      color: #F44336; }
-    .has-error .mandatory-msg i {
-      margin-right: 10px;
-      line-height: 24px;
-      vertical-align: bottom; }
-  .has-error input, .has-error .input, .has-error .input-min {
-    border-color: #F44336;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-
-.has-warning {
-  position: relative; }
-  .has-warning .form-control-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    display: block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    pointer-events: none;
-    color: #FF5722; }
-  .has-warning .mandatory-msg {
-    color: #FF5722;
-    position: absolute;
-    left: 0px;
-    line-height: 24px; }
-    .has-warning .mandatory-msg .iconfont, .has-warning .mandatory-msg .icon {
-      color: #FF5722; }
-    .has-warning .mandatory-msg i {
-      margin-right: 10px;
-      line-height: 24px;
-      vertical-align: bottom; }
-  .has-warning input, .has-warning .input, .has-warning .input-min {
-    border-color: #FF5722;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-
-.has-success {
-  position: relative; }
-  .has-success .form-control-feedback {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    display: block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    pointer-events: none;
-    color: #4CAF50; }
-  .has-success .mandatory-msg {
-    color: #4CAF50;
-    position: absolute;
-    left: 0px;
-    line-height: 24px; }
-    .has-success .mandatory-msg .iconfont, .has-success .mandatory-msg .icon {
-      color: #4CAF50; }
-    .has-success .mandatory-msg i {
-      margin-right: 10px;
-      line-height: 24px;
-      vertical-align: bottom; }
-  .has-success input, .has-success .input, .has-success .input-min {
-    border-color: #4CAF50;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-
 .tab-bor {
   border-bottom: 1px solid #E9E9E9;
   margin-left: -1px; }
@@ -1905,24 +1409,6 @@ body {
     border-right: 1px solid #E9E9E9;
     border-left: 1px solid #E9E9E9;
     background-color: #fff;
-    font-weight: bold; }
-
-.step-title {
-  background: #E6F0F4;
-  line-height: 48px;
-  border-radius: 4px;
-  padding: 0 20px; }
-  .step-title strong {
-    background: #fff;
-    line-height: 28px;
-    height: 28px;
-    width: 28px;
-    display: inline-block;
-    border-radius: 50%;
-    text-align: center;
-    margin-right: 20px; }
-  .step-title h2 {
-    font-size: 16px;
     font-weight: bold; }
 
 .tab-bg {
@@ -1945,9 +1431,6 @@ body {
       color: #fff; }
     .tab-bg .active a, .tab-bg .active + li a, .tab-bg li:hover a, .tab-bg li:hover + li a {
       border-left-color: transparent; }
-
-.line-dotted {
-  border-top: 1px dotted #bbb; }
 
 .paging-box {
   color: #999;
@@ -2057,5 +1540,61 @@ body {
     color: #6b0f9c; }
   .toast-close-Violet i {
     color: #a269c0; }
+
+.date {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative; }
+  .date i {
+    padding: 11px 10px;
+    border-right: 1px solid #e5e5e5; }
+  .date input {
+    height: 36px;
+    border: 0;
+    outline: 0;
+    padding: 0 10px; }
+  .date .picker-wrap {
+    position: absolute;
+    left: 36px;
+    width: 314px;
+    height: 356px;
+    border: 1px solid #e5e5e5; }
+    .date .picker-wrap .date-head {
+      padding: 30px 18px 15px;
+      font-size: 14px; }
+      .date .picker-wrap .date-head .retreat, .date .picker-wrap .date-head .next {
+        cursor: pointer; }
+      .date .picker-wrap .date-head .year {
+        color: #c8c8c8; }
+      .date .picker-wrap .date-head .month {
+        font-weight: bold; }
+      .date .picker-wrap .date-head .interstice {
+        width: 16px; }
+      .date .picker-wrap .date-head .next {
+        text-align: right; }
+    .date .picker-wrap .date-week, .date .picker-wrap .date-days, .date .picker-wrap .date-btn {
+      padding: 0 32px;
+      text-align: center;
+      line-height: 36px; }
+    .date .picker-wrap .date-week {
+      font-weight: bold;
+      color: #c8c8c8; }
+      .date .picker-wrap .date-week .week {
+        color: #ef5350; }
+    .date .picker-wrap .date-days span, .date .picker-wrap .date-btn span {
+      cursor: pointer;
+      border-radius: 4px; }
+      .date .picker-wrap .date-days span:hover, .date .picker-wrap .date-btn span:hover {
+        background: #f5f5f5; }
+    .date .picker-wrap .date-days .pass, .date .picker-wrap .date-btn .pass, .date .picker-wrap .date-days .future, .date .picker-wrap .date-btn .future {
+      color: #c8c8c8; }
+    .date .picker-wrap .date-days .active, .date .picker-wrap .date-btn .active {
+      color: #fff;
+      background: #2196F3; }
+    .date .picker-wrap .date-btn .today {
+      color: #2196F3; }
+    .date .picker-wrap .date-btn .clear {
+      color: #F44336; }
 
 /*# sourceMappingURL=app.css.map*/
