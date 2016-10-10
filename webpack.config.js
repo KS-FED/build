@@ -56,10 +56,13 @@ module.exports = {
             }, {
                 test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
                 loader: "file-loader?mimetype=application/font-woff"
-            }, {
-                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file-loader?mimetype=application/octet-stream"
-            }, {
+            }, 
+            // {
+            //     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+            //     loader: "file-loader?mimetype=application/octet-stream"
+            // },
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]"},
+            {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
                 loader: "file-loader"
             }
