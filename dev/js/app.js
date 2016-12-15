@@ -1,7 +1,3 @@
-
-/* eslint-disable no-unused-vars */
-import scss from 'scss'
-/* eslint-enable no-unused-vars */
 import VueRouter from 'vue-router'
 import { proxy_mock } from './config/index'
 import components from './components/index'
@@ -39,7 +35,7 @@ var mount = Vue.prototype.$mount
 //         console.log('')
 //     })
 
-// console.log(Vue.http.post)
+console.log(Vue.http.post)
 
 require('./lib/index')
 

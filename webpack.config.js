@@ -13,6 +13,7 @@ console.log(process.env.NODE_ENV)
 
 module.exports = {
     entry: {
+        scss:[ __dirname + '/dev/sass/app.scss'],
         app: __dirname + '/dev/js/app.js',
         vuecore: __dirname + '/dev/js/vuecore.js'
     },
@@ -23,13 +24,14 @@ module.exports = {
         publicPath: './dist/'
     },
     module: {
+        // noParse: [/scss/],
         preLoaders: [
             // {test: /\.vue$/, loader: "eslint", exclude: /node_modules/},
             // {test: /\.js$/, loader: "eslint", exclude: /node_modules/}
         ],
         loaders: [
             {   test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass-loader-once')}, 
+                loader: ExtractTextPlugin.extract('css-loader!sass-loader')}, 
             {   test: /\.(tpl|html)$/,
                 loader: 'html'}, 
             {   test: /\.vue$/,
@@ -41,16 +43,7 @@ module.exports = {
             // {test: /\.(js|tag)$/, exclude: /node_modules/, loader: 'babel-loader'},
             {   test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192'}, 
-            {   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
-            {   test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
-            {   test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'}, 
-            
-            {   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
-                loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'},
-            {   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+            {   test: /\.(svg|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file-loader-path?limit=8192&name=[name].[ext]?[hash:8]&path=../[name].[ext]?[hash:8]'}
         ]
     },
@@ -59,11 +52,10 @@ module.exports = {
         plugins: ['transform-runtime']
     },
     eslint: {
-        configFile: __dirname+'/.eslintrc',
-        formatter: require('eslint-friendly-formatter')
+        // configFile: __dirname+'/.eslintrc',
+        // formatter: require('eslint-friendly-formatter')
     },
     plugins: [
-        new ExtractTextPlugin('app.css'),
         new CleanWebpackPlugin(['dist'], {
             root: __dirname,
             verbose: true,
@@ -73,6 +65,7 @@ module.exports = {
             'APP_ENV': JSON.stringify(process.env.NODE_ENV),
             'APP_VERSION':JSON.stringify(_package.version)
         }),
+        new ExtractTextPlugin('app.css'),
         new webpack.ProvidePlugin({
             'Vue':'vue',
             'VueResource':'vue-resource'
@@ -80,13 +73,13 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
           name:'vuecore',
           filename:'vuecore.js'
-        })
+        }),
+        new webpack.optimize.DedupePlugin()
         
     ],
     resolve: {
         // extensions: ['', '.js', '.vue'],
         alias: {
-            scss: path.join(__dirname, './dev/sass/app.scss')
         }
     },
     devtool: process.env.NODE_ENV != 'pro' && 'source-map'
