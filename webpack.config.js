@@ -6,9 +6,8 @@ var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var _package = require('./package.json')
-console.log(process.env.NODE_ENV,process.env.NODE_ENV ? 'pro':'')
 
-
+console.log(process.env.NODE_ENV ? 'pro':'dev')
 
 module.exports = {
     entry: {
