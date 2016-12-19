@@ -1,15 +1,17 @@
 import VueRouter from 'vue-router'
-import { proxy_mock } from './config/index'
+import config from './config/index'
 import components from './components/index'
 import routers from './routers'
-Object.keys(components).forEach(k => {
-    var a = Vue.component(k, components[k])
-    console.log(a)
-})
+import interceptor from './middlewares/interceptor'
+
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
-proxy_mock(Vue)
+Vue.use(interceptor)
+Vue.use(config)
+
+Object.keys(components).forEach(k => Vue.component(k, components[k]))
+
 
 // *** 实例化VueRouter
 let router = new VueRouter({
@@ -23,20 +25,11 @@ routers(Vue, router)
 let app = Vue.extend({})
 router.start(app,'#app')
 
-
-
-
-var mount = Vue.prototype.$mount
-
-
-
 // Vue.http.get('./aaa', {})
 //     .then(res => {
 //         console.log('')
 //     })
 
-console.log(Vue.http.post)
 
-require('./lib/index')
 
 
