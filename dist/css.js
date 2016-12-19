@@ -1,8 +1,1 @@
-webpackJsonp([4],[
-/* 0 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }
-]);
+webpackJsonp([4],[function(n,c){}]);
