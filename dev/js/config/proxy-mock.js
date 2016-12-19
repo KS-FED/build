@@ -1,5 +1,5 @@
     var config = {
-        // proxy:true,
+        proxy:true,
         // mock:true
     }
 
@@ -27,7 +27,7 @@
      */
     function proxy (Vue, isproxy) {
         if (isproxy) {
-            // console.log('proxy ....')
+            console.log('proxy ....')
             Vue.http.options.root = '.'
                 // 代理端口
                 // Vue.http.headers.common['DOMAIN'] = 'http://zd.dev.kashuo.net/zdcrm-ws-1.0'
