@@ -17,6 +17,16 @@ export default function (Vue,router){
                         resolve(res)
                     })
                 }
+            },
+            // tree
+            '/tree':{
+                name:'tree',
+                title:'树',
+                component: function(resolve){
+                    require(['./views/tree/index.vue'], (res)=> {
+                        resolve(res)
+                    })
+                }
             }
 
         }
