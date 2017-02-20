@@ -1,0 +1,192 @@
+webpackJsonp([4],{
+
+/***/ 60:
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	var __vue_styles__ = {}
+	__vue_script__ = __webpack_require__(61)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] dev/js/views/tree/index.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(62)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
+	if (__vue_template__) {
+	__vue_options__.template = __vue_template__
+	}
+	if (!__vue_options__.computed) __vue_options__.computed = {}
+	Object.keys(__vue_styles__).forEach(function (key) {
+	var module = __vue_styles__[key]
+	__vue_options__.computed[key] = function () { return module }
+	})
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-706789d2/index.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+
+/***/ 61:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _stringify = __webpack_require__(64);
+
+	var _stringify2 = _interopRequireDefault(_stringify);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// <template>
+	//     <div>
+	//         <h2>tree</h2>
+	//         <ul>
+	//             <!-- <loop :val.sync="data" sub="children"></loop> -->
+	//             <loop :val.sync="item" v-for="item in data" sub="children"></loop>
+	//         </ul>
+	//         <button type="button" v-on:click="submit()">确认</button>
+	//     </div>
+	// </template>
+	// <script type="text/javascript">
+	exports.default = {
+	    data: function data() {
+	        return {
+	            data: [{ label: '功能', checked: true,
+	                children: [{ label: '门店', checked: true,
+	                    children: [{ label: '查询', checked: true }, { label: '编辑', checked: true }] }, { label: '营销', checked: true,
+	                    children: [{ label: '查询', checked: true }, { label: '编辑', checked: true }] }, { label: '会员卡', checked: true,
+	                    children: [{ label: '查询', checked: true }, { label: '编辑', checked: true }] }, { label: '储值卡', checked: true,
+	                    children: [{ label: '查询', checked: true }, { label: '编辑', checked: true }] }, { label: '积分卡', checked: true }, { label: '现金红包', checked: true }] }, { label: '管理', checked: true,
+	                children: [{ label: '会员管理', checked: true }, { label: '财务对账', checked: true }] }, { label: '设置', checked: true,
+	                children: [{ label: '基本设置', checked: true }, { label: '安全中心', checked: true }] }]
+	        };
+	    },
+
+	    methods: {
+	        dataHandle: function dataHandle(data) {
+	            var _this = this;
+
+	            var bool = true;
+	            var node = data;
+	            data = node.children || node;
+
+	            data.forEach(function (item, i) {
+
+	                // console.log(item.label,'2222')
+	                if (item.children) {
+	                    _this.dataHandle(item);
+	                }
+
+	                if (!item.checked) {
+	                    bool = false;
+	                }
+	                // console.log(item.label,'2222')
+	            });
+	            if (node.children) {
+	                node.checked = bool;
+	            }
+
+	            // console.log(data)
+	            return;
+	            this.iterator(data, function (item, heap, temp) {
+
+	                if (item.current) {
+	                    temp.current = true;
+	                    temp.label = heap[0].label;
+	                    temp.checked = item.checked;
+	                }
+	                if (item.label == temp.label) {
+	                    temp.current = false;
+	                    temp.label = '';
+	                }
+	                if (temp.current) {
+	                    item.checked = temp.checked;
+	                }
+
+	                item.current = false;
+	            });
+	        },
+	        iterator: function iterator(data, cb) {
+	            if (!data || !data.length) return;
+
+	            var heap = [];
+	            var temp = {};
+
+	            //先将第一层节点放入栈
+	            for (var i = 0, len = data.length; i < len; i++) {
+	                heap.push(data[i]);
+	            }
+
+	            var item;
+
+	            while (heap.length) {
+
+	                item = heap.shift();
+
+	                if (typeof cb === 'function') cb(item, heap, temp);
+
+	                //如果该节点有子节点，继续添加进入栈顶
+	                if (item.children && item.children.length) {
+	                    heap = item.children.concat(heap);
+	                }
+	            }
+	        },
+	        submit: function submit() {
+	            console.log(JSON.parse((0, _stringify2.default)(this.data)));
+	        }
+	    },
+
+	    created: function created() {
+	        var _this2 = this;
+
+	        this.$on('change', function () {
+	            _this2.dataHandle(_this2.data);
+	        });
+	    },
+	    ready: function ready() {}
+	};
+
+	// </script>
+
+/***/ },
+
+/***/ 62:
+/***/ function(module, exports) {
+
+	module.exports = "\n<div>\n    <h2>tree</h2>\n    <ul>\n        <!-- <loop :val.sync=\"data\" sub=\"children\"></loop> -->\n        <loop :val.sync=\"item\" v-for=\"item in data\" sub=\"children\"></loop>\n    </ul>\n    <button type=\"button\" v-on:click=\"submit()\">确认</button>\n</div>\n";
+
+/***/ },
+
+/***/ 64:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(65), __esModule: true };
+
+/***/ },
+
+/***/ 65:
+/***/ function(module, exports, __webpack_require__) {
+
+	var core  = __webpack_require__(26)
+	  , $JSON = core.JSON || (core.JSON = {stringify: JSON.stringify});
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return $JSON.stringify.apply($JSON, arguments);
+	};
+
+/***/ }
+
+});
