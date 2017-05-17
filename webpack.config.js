@@ -6,14 +6,24 @@ var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var _package = require('./package.json')
+var babel = require('babel-core')
+// var code = babel.transformFileSync('./src/app/service/index.js', {
+//         presets: ['es2015', 'stage-0'],
+//         plugins: ['transform-runtime']
+//     }).code
+// console.log(code)
+// console.log(babel.transform(code).code)
+
+
 
 console.log(process.env.NODE_ENV ? 'pro':'dev')
 
+
 module.exports = {
     entry: {
-        css: __dirname + '/dev/sass/app.scss',
-        app: __dirname + '/dev/js/app.js',
-        vuecore: __dirname + '/dev/js/vuecore.js'
+        css: __dirname + '/src/assets/sass/app.scss',
+        app: __dirname + '/src/app/index.js',
+        vuecore: __dirname + '/src/app/vuecore.js'
     },
 
     output: {
@@ -67,6 +77,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             'Vue': 'vue',
             'Vuex': 'vuex',
+            'service': __dirname +'/src/app/service/index.js',
             'VueResource': 'vue-resource',
             'VueRouter': 'vue-router',
             'VueValidator': 'vue-validator'
