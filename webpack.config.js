@@ -3,17 +3,20 @@
  * @author zdzDesigner
  */
 var webpack = require('webpack')
+var path = require('path')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var _package = require('./package.json')
 
+
 console.log(process.env.NODE_ENV ? 'pro':'dev')
+
 
 module.exports = {
     entry: {
-        css: __dirname + '/dev/sass/app.scss',
-        app: __dirname + '/dev/js/app.js',
-        vuecore: __dirname + '/dev/js/vuecore.js'
+        css: __dirname + '/src/assets/sass/app.scss',
+        app: __dirname + '/src/app/index.js',
+        vuecore: __dirname + '/src/app/vuecore.js'
     },
 
     output: {
@@ -58,7 +61,12 @@ module.exports = {
         presets: ['es2015', 'stage-0'],
         plugins: ['transform-runtime']
     },
-
+    resolve: {
+        alias: {
+            KS: path.resolve(__dirname, './src/ks'),
+            VUEX: path.resolve(__dirname, './src/app/model/vuex')
+        }
+    },
     plugins: [
         new webpack.DefinePlugin({
             'APP_ENV': JSON.stringify(process.env.NODE_ENV ? 'pro':'dev'),
@@ -66,10 +74,8 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             'Vue': 'vue',
-            'Vuex': 'vuex',
-            'VueResource': 'vue-resource',
-            'VueRouter': 'vue-router',
-            'VueValidator': 'vue-validator'
+            'Service': __dirname +'/src/app/service/index.js',
+            'VueResource': 'vue-resource'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vuecore',
