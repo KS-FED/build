@@ -1,26 +1,19 @@
-import intersection from './util/intersection.js'
-import vuei from './vuei'
+import util from './util'
 import storage from './storage'
+import logger from './logger'
+import widget from './widget'
 
-// console.log('service: ',Object.keys(Vue),Object.keys(Vue.util))
-// console.log(Vue.util.on)
-// console.log(Object.keys(VueResource),VueResource)
-// console.log('service index')
-// console.log(storage)
 
-var service = {
-    name:'欢迎应用 service 服务',
-    Promise:Vue.Promise,
-    // util:Vue.util,
-    merge:Vue.util.mergeOptions,
-    intersection:intersection,
-    local:storage.local,
-    session:storage.session,
-    cookie:storage.cookie,
-    urlTpl:Vue.url
+
+var Service = {
+    name:'欢迎应用 Service 服务',
+    logger:logger,
+    Promise:Vue.Promise
+    
 }
 
-Vue.use(vuei,service)
+Service = util.mergeMulti(Service,util,storage,widget)
 
-module.exports = service
-// export default service
+
+
+module.exports = Service

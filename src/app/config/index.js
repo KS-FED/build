@@ -6,10 +6,8 @@ export default function install (Vue) {
     console.log('environment: ' + APP_ENV, 'version: ' + APP_VERSION)
     Vue.config.debug = false
     if (APP_ENV === 'dev') {
-        require(['./proxy-mock'], function ({
-            proxy_mock_core
-        }) {
-            proxy_mock_core(Vue)
+        require(['./proxy-mock'], function ({proxyMock}) {
+            proxyMock(Vue)
         })
     }
 }

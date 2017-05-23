@@ -6,13 +6,14 @@
             <!-- <loop :val.sync="data" sub="children"></loop> -->
             <loop :val.sync="item" v-for="item in data" sub="children"></loop>
         </ul>
-        <button type="button" v-on:click="submit()">确认</button>
+        <button type="button" v-on:click="
+        $i.KsDialog.success('ss')">确认</button>
     </div>
 </template>
 <script type="text/javascript">
     export default {
-        vuei:['intersection','session'],
-        vuem:['common.region_get','common.region_post','common.region_delete','session','cc.s'],
+        vuei:['intersection','session','KsDialog'],
+        vuem:['common.region_get','common.region_post','common.region_delete','session','cc'],
         vuex:{
             getters:{
                 appid:(state)=> state.common.user_info.appid
@@ -132,6 +133,7 @@
             },
             submit(){
                 console.log(JSON.parse(JSON.stringify(this.data)))
+                this.$i.KsDialog.success('ss')
             },
             hide(){
                 console.log('1')
@@ -145,36 +147,15 @@
             })
         },
         ready(){
-            console.log(this.$m.common.region_get())
-            this.$m.common.region_get({params:{id:33}})
+            
+           
+            // this.$i.KsDialog.success()
+            this.$m.common.region_delete({id:'1'},{body:'body content'})
                 .then((data)=>{
                     // console.log(data,this)
 
                 })
 
-            // this.$m.common.region_get({params:{id:33}})
-            //     .then((data)=>{
-            //         // console.log(data,this)
-
-            //     })
-
-            // this.$m.common.region_post({id:'post'},{body:'body content'})
-            //     .then((data)=>{
-            //         // console.log(data,this)
-
-            //     })
-
-            // this.$m.common.region_delete({id:'1'},{body:'body content'})
-            //     .then((data)=>{
-            //         // console.log(data,this)
-
-            //     })
-
-            // this.$m.common.region_delete({id:'1',name:'username1'},{body:'body content'})
-            //     .then((data)=>{
-            //         // console.log(data,this)
-
-            //     })   
             // setTimeout(()=>{
             //     this.$m.common.region_delete({id:'1',name:'username2'},{body:'body content'})
             //     .then((data)=>{
@@ -185,15 +166,13 @@
              
 
             // console.log(this.$m)
-            this.$i.session.set('a','新插入一条')
-            this.$m.session.set('b','$m再来一条1')
+            // this.$i.session.set('a','新插入一条')
             
 
-            console.log('$i.session.get: ',this.$i.session.get('a'))
-            console.log('$m.session.get: ',this.$m.session.get('b'))
-            console.log('intersection: ',this.$i.intersection(['s','执2行'],['执行','s']))
-            this.$m.session.clearAll()
+            // console.log('$i.session.get: ',this.$i.session.get('a'))
             
+            // console.log('intersection:',this.$i.intersection(['s','执2行'],['执行','s']))
+           
         }
 
     }

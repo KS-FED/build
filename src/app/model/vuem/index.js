@@ -1,11 +1,6 @@
-// 非模板依赖注入
-// app.inject = ['merge']
-// function app(merge){
-//     merge(a,b)
-// }
-
 // import service from '../../service'
-export default function install(Vue,api,options) {
+export default function install(Vue,map,global) {
+
         
         var _init = Vue.prototype._init
         Vue.prototype._init = function(options = {}) {
@@ -15,30 +10,36 @@ export default function install(Vue,api,options) {
         }
 
         function modelInit() {
+            global = {
+                restful: global.restful || false ,
+                payload: global.payload || false ,
+                abort :  global.abort || false
+            }
             /**
-             * 获取 vuem 依赖的方法,从API容器中获取属性赋值给 vm.$m
+             * 获取 vuem 依赖的方法,从map容器中获取属性赋值给 vm.$m
              * 1. 遍历 vuem ,获取依赖属性 
-             *     两种情况，有层级或无层级(common.getSSQ || getList)
+             *     两种情况，有层级或无层级(common.getList || getList)
              *     用目标检测法是否有
              *     ['get','post','delete','query','remove','save','update'] 
              *     中的属性,并且值为字符串
              * 2. 错误提示
              * 3. 造值$m后赋值
              */
+            //  locals 暂时放入service中
+            var locals = ['local','session','cookie']
 
-            var requestMethods = ['get','post','delete','query','remove','save','update'],
-                locals = ['local','session','cookie']
-
+            // console.log(this.$options.vuem)
             if (this.$options.vuem) {
                 this.$m = {}
                 this.$options.vuem
-                    .forEach((key) => {
-
-                        var keys = key.split('.')
+                    .forEach((item) => {
+                        // console.log(item)
+                        // common.getList => ['common','getList']
+                        var keys = item.split('.')
                         if(~locals.indexOf(keys[0]) && keys.length == 1){
-                            local.apply(this, [api, keys])
+                            local.apply(this, [map, keys])
                         }else{
-                            remote.apply(this, [api, keys, requestMethods])    
+                            remote.apply(this, [map, keys])    
                         }
                         
                     })        
@@ -47,122 +48,92 @@ export default function install(Vue,api,options) {
 
         /**
          * [local 处理本地存储]
-         * @param  {[type]} api  [description]
+         * @param  {[type]} map  [地图]
          * @param  {[type]} keys [description]
          * @return {[type]}      [description]
          */
-        function local(api, keys){
+        function local(map, keys){
             var key = keys[0]
-            this.$m[key] = api[key]
+            this.$m[key] = map[key]
         }
 
         /**
          * [remote 处理远程数据]
-         * @param  {[type]} api     [description]
+         * @param  {[type]} map     [description]
          * @param  {[type]} keys    [description]
-         * @param  {[type]} methods [description]
          * @return {[type]}         [description]
          */
-        function remote(api,keys,methods){
-            var MU = verify(api, keys, methods)
-            // console.log('MU',keys.join('.'),MU)
-            if(!MU) return
-            var val = keys.reduce((pending, k, i)=>{
+        function remote(map,keys){
+            
+            var xhrfig = verify(map, keys.join('.'))
+            // return
+            // console.log('xhrfig',xhrfig)
+            if(!xhrfig) return
+
+            keys.reduce((pending, k, i)=>{
                 
                 if(i == keys.length-1) {
-                    pending[k] = (...args)=>{
-                        
-                        var restful = typeof MU.restful == 'boolean' 
-                                        ? MU.restful
-                                        : options.restful || false 
-
-                        var payload = typeof MU.payload == 'boolean' 
-                                        ? MU.payload
-                                        : options.payload || false
-                        
-                        var abort   = typeof MU.abort == 'boolean' 
-                                        ? MU.abort
-                                        : options.abort || true
-
-                        var requestOptions = {
-                            emulateJSON : !payload ,
-                            vuem : abort ? keys.join('.') : ''
-                        }                
-                        
-                        if(restful){
-                            return this.$resource(MU.url, {}, {}, requestOptions)[MU.method].apply(null, args)    
-
-                        }else{
-
-                            args.unshift(MU.url)
-
-                            if(~['post', 'put', 'patch'].indexOf(MU.method)){
-                                args[2] = service.merge(args[2]||{}, requestOptions)
-                            }else{
-                                args[1] = service.merge(args[1]||{}, requestOptions)
-                            }
-                            
-
-                            return this.$http[MU.method].apply(null, args)
-                        }
-                    }
+                    pending[k] = (...args) => getXhrPromise.call(this,xhrfig,keys,args)
                 }else{
                     pending[k] = pending[k] || {}
                 }
-                // console.log('k',i,k,pending[k])
                 
                 return pending[k]
             },this.$m)
         
         }
 
-
-        
         /**
-         * [verify description]
-         * @param  {[type]} api       [description]
-         * @param  {[type]} dependent [description]
-         * @param  {[type]} methods   [description]
-         * @return {[type]}           [description]
+         * [getXhrPromise 返回请求的Promise对象]
+         * @param  {[type]} xhrfig   [XHR 配置]
+         * @param  {[type]} keys []
+         * @param  {[type]} args [具体调用接口方法传如的参数]
+         * @return {[type]}      [promise]
          */
-        function verify(api, dependent, methods){
-            var moduleName = dependent[0],
-                subName = dependent[1],
-                module = api[moduleName]
+        function getXhrPromise(xhrfig,keys,args){
+            // console.log(xhrfig,keys)
 
-            // console.log(module,getMU(methods,module))
-            var UM = dependent.reduce((pending, key)=>{
-                var obj = pending[key],MU
-                if(obj && (MU = getMU(obj, methods))){
-                    return MU      
+            var restful = typeof xhrfig.restful =='boolean' ? xhrfig.restful : global.restful
+            var payload = typeof xhrfig.payload =='boolean' ? xhrfig.payload : global.payload
+            var abort   = typeof xhrfig.abort =='boolean' ? xhrfig.abort : global.abort
+
+            var requestOptions = {
+                emulateJSON : !payload ,
+                vuem : abort ? keys.join('.') : ''
+            }                
+            // console.log(restful)
+            if(restful){
+                // console.log(xhrfig.method)
+                return this.$resource(xhrfig.url, {}, {}, requestOptions)[xhrfig.method].apply(null, args)    
+            }else{
+                args.unshift(xhrfig.url)
+
+                if(~['post', 'put', 'patch'].indexOf(xhrfig.method)){
+                    args[2] = Service.merge(args[2]||{}, requestOptions)
                 }else{
-                    if(!obj) console.warn(`接口模块 '${dependent.join('.')}' 未定义`)
+                    args[1] = Service.merge(args[1]||{}, requestOptions)
                 }
                 
-                return obj
-            },api)
-            console.log('UM',UM)
-            return UM
-            
-        }
 
-
-        function getMU(config, methods){
-            var method,url
-            
-            method = Object.keys(config).filter((val)=>{
-                if(~methods.indexOf(val)) return val
-            })[0]
-            url = config[method]
-
-            if(method){
-                config.method = method
-                config.url = url
-                return config
+                return this.$http[xhrfig.method].apply(null, args)
             }
+        
+        }
+        
+        /**
+         * [verify 验证调用属性在IOC中是否存在]
+         * @param  {[type]} map       [映射map]
+         * @param  {[type]} dependent [依赖属性]
+         * @return {[type]}           [description]
+         */
+        function verify(map, dependent){
+            var target = map[dependent]
+            if(!target) {
+                Service.logger('warn',`接口模块 '${dependent}' 未定义`)
+                return null
+            }
+            return target
             
         }
         
-
-
 }

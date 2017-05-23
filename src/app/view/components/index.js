@@ -1,13 +1,23 @@
 import loop from './loop'
 import otherComponent from './otherComponent'
+import KsMask from 'KS/components/KsMask/index.js'
+import KsButton from 'KS/components/KsButton/index.1.0.0.js'
+import KsIcon from 'KS/components/KsIcon/index.1.0.0.js'
+
+
 
 var components = {
     loop,
-    otherComponent
+    otherComponent,
+    KsButton,
+    KsIcon
+
 };
 
 // 插件
-var Plugins = {};
+var Plugins = {
+    KsMask
+};
 
 const install = function(Vue) {
   if (install.installed) return;

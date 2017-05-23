@@ -3,7 +3,7 @@
         // mock:true
     }
 
-    export function proxy_mock_core (Vue) {
+    export function proxyMock (Vue) {
         proxy(Vue, config.proxy)
         mock(Vue, config.mock)
     }
