@@ -1,4 +1,3 @@
-// import service from '../../service'
 export default function install(Vue,map,global) {
 
         

@@ -9,7 +9,7 @@ export default function install(Vue){
     }
     
     Vue.http.interceptors.push(function(request,next){
-        // console.log('interceptors')
+        // console.log(request)
         
         next(function(response){
             // console.log(response)

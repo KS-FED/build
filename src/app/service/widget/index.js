@@ -1,5 +1,5 @@
-import KsDialog from '../../../ks/components/KsDialog/index.js'
-import KsNoticeCenter from '../../../ks/components/KsNoticeCenter/index.js'
+import KsDialog from 'KS/components/KsDialog/index.js'
+import KsNoticeCenter from 'KS/components/KsNoticeCenter/index.js'
 
 
 export default {
