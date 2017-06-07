@@ -6,6 +6,8 @@ var webpack = require('webpack')
 var path = require('path')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+
 var _package = require('./package.json')
 
 
@@ -14,16 +16,16 @@ console.log(process.env.NODE_ENV ? 'pro':'dev')
 
 module.exports = {
     entry: {
-        css: __dirname + '/src/assets/sass/app.scss',
+        cssasset: __dirname + '/src/assets/sass/app.scss',
         app: __dirname + '/src/app/index.js',
         vuecore: __dirname + '/src/app/vuecore.js'
     },
 
     output: {
         path: __dirname + '/dist',
-        filename: '[name].js',
-        chunkFilename: '[name].[chunkhash:8].js',
-        publicPath: './dist/'
+        filename: '[name]_[chunkhash:8].js',
+        chunkFilename: '[name]_[chunkhash:8].js',
+        publicPath: './'
     },
 
     module: {
@@ -81,8 +83,18 @@ module.exports = {
             name: 'vuecore',
             filename: 'vuecore.js'
         }),
-        new ExtractTextPlugin('app.css'),
+        new ExtractTextPlugin('app_[chunkhash:8].css'),
         new webpack.optimize.DedupePlugin(),
+        new HtmlWebpackPlugin({
+            title:'卡说 · 商户管理系统',
+            template:'index.ejs',
+            chunks: ['app','vuecore','cssasset'],
+            inject:false,
+            // hash: true,
+            minify: {
+                collapseWhitespace: true
+            }
+        }),
         new CleanWebpackPlugin(['dist'], {
             root: __dirname,
             verbose: true,
