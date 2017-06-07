@@ -18,15 +18,12 @@ var mixinWebpackConfig = merge.smart(webpackConfig, {
       host: 'localhost',
       port: 8077,
       server: {
-        baseDir: path.join(__dirname, '../'),
+        baseDir: path.join(__dirname, '../dist/'),
         index: 'index.html',
       }
     }),
     new webpack.ProgressPlugin(function (percentage, msg) {
       console.log('进度：' + Math.round(percentage * 100) + '% ---> ' + msg)
-    }),
-    new HtmlWebpackPlguin({
-      inject: true
     })
   ],
   loaders: [
