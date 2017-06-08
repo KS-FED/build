@@ -11,10 +11,12 @@
 </head>
 <body>
     <div id="app"><router-view ></router-view></div>
-    <% htmlWebpackPlugin.files.js.forEach(function(item){ %>
-        <% if(!~item.indexOf('cssasset')){ %>
+    <%  ['vuecore','app'].map(function(item){
+            return htmlWebpackPlugin.files.js.map(function(real){
+                if(~real.indexOf(item)) return real
+            }).join('')
+        }).forEach(function(item){ %>
         <script type="text/javascript" src="<%= item %>"></script>
-        <% } %>
     <% }) %>
 </body>
 </html>
