@@ -90,7 +90,6 @@ module.exports = {
             template:'index.ejs',
             chunks: ['app','vuecore','cssasset'],
             inject:false,
-            // hash: true,
             minify: {
                 collapseWhitespace: true
             }
