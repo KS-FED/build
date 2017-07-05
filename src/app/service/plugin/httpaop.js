@@ -44,7 +44,7 @@ export default function install(Vue){
                     xhrPromise.then((res)=>{
                             var body = res.body
                             if(body.code == 10000){
-                                cache.val || Service.session.set(cache.key,res)
+                                cache.key && (cache.val || Service.session.set(cache.key,res))
                                 resolvecb && resolvecb(body)
                             }else{
                                 Service.KsMessage.danger(body.message)
