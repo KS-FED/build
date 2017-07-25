@@ -4,7 +4,7 @@ var path = require('path')
 var webpackConfig = require('../webpack.config')
 var shell = require('shelljs')
 
-
+var hasServer = false
 
 var config = merge.smart(webpackConfig, {
     watch: true
@@ -20,7 +20,10 @@ webpack(config, function (err, status) {
       chunks: false,
       chunkModules: false
     }) + '\n')
-
-    shell.cd('./dist')
-    shell.exec('proxy-mock -p 8079', {async:true}).stdout.on('data', function(data) {})
+  
+    if(!hasServer){
+      shell.cd('./dist')
+      shell.exec('proxy-mock -p 8079', {async:true}).stdout.on('data', function(data) {})
+      hasServer = true
+    }
 })
