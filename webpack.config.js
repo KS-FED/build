@@ -7,6 +7,8 @@ var path = require('path')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
+
 
 var _package = require('./package.json')
 
@@ -80,15 +82,14 @@ module.exports = {
             'VueResource': 'vue-resource'
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vuecore',
-            filename: 'vuecore.js'
+            names: ['manifest','vuecore'].reverse()
         }),
         new ExtractTextPlugin('app_[chunkhash:8].css'),
         new webpack.optimize.DedupePlugin(),
         new HtmlWebpackPlugin({
             title:'卡说 · 商户管理系统',
             template:'index.ejs',
-            chunks: ['app','vuecore','cssasset'],
+            chunks: ['manifest','app','vuecore','cssasset'],
             inject:false,
             minify: {
                 collapseWhitespace: true
@@ -98,7 +99,8 @@ module.exports = {
             root: __dirname,
             verbose: true,
             dry: false
-        })
+        }),
+        new InlineManifestWebpackPlugin()
     ]
 
 };
