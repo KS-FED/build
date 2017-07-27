@@ -45,7 +45,7 @@ export default function install(Vue){
                             var body = res.body
                             try{
                                 typeof body == 'string' && (body = JSON.parse(body))
-                            }cache(err){}
+                            }catch(err){}
                             
                             if(body.code == 10000){
                                 cache.key && (cache.val || Service.session.set(cache.key,res))
