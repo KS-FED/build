@@ -7,6 +7,7 @@ var path = require('path')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var NyanProgressPlugin = require('nyan-progress-webpack-plugin')
 var InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 
 
@@ -72,6 +73,7 @@ module.exports = {
         }
     },
     plugins: [
+        new NyanProgressPlugin(),
         new webpack.DefinePlugin({
             'APP_ENV': JSON.stringify(process.env.NODE_ENV ? 'pro':'dev'),
             'APP_VERSION': JSON.stringify(_package.version)
